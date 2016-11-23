@@ -8,6 +8,10 @@ set :deploy_to, '/var/www/framework'
 ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
 set :pty, true
 
+
+set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache',
+                                               'tmp/sockets', 'public/system')
+
 namespace :deploy do
 
   after :restart, :clear_cache do
