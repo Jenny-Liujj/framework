@@ -14,6 +14,7 @@ gem 'config'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem "capistrano", "~> 3.6"
 end
 
 group :development do
