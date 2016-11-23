@@ -96,3 +96,156 @@ and the repository exists.
 
 Please make sure you have the correct access rights
 and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-11-23 16:41:09 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [872e3bd6] Running /usr/bin/env mkdir -p /tmp as ssgene-forum@192.168.199.194
+ DEBUG [872e3bd6] Command: /usr/bin/env mkdir -p /tmp
+  INFO [872e3bd6] Finished in 0.293 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-framework-production-liu.sh 0.0%
+  INFO Uploading /tmp/git-ssh-framework-production-liu.sh 100.0%
+  INFO [c133bddb] Running /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh as ssgene-forum@192.168.199.194
+ DEBUG [c133bddb] Command: /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh
+  INFO [c133bddb] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [2647b327] Running /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git as ssgene-forum@192.168.199.194
+ DEBUG [2647b327] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git )
+ DEBUG [2647b327] 	Permission denied (publickey).
+ DEBUG [2647b327] 	fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-11-23 16:42:03 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d5a5e853] Running /usr/bin/env mkdir -p /tmp as ssgene-forum@192.168.199.194
+ DEBUG [d5a5e853] Command: /usr/bin/env mkdir -p /tmp
+  INFO [d5a5e853] Finished in 0.667 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-framework-production-liu.sh 0.0%
+  INFO Uploading /tmp/git-ssh-framework-production-liu.sh 100.0%
+  INFO [563c2621] Running /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh as ssgene-forum@192.168.199.194
+ DEBUG [563c2621] Command: /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh
+  INFO [563c2621] Finished in 0.013 seconds with exit status 0 (successful).
+  INFO [6157dbce] Running /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git as ssgene-forum@192.168.199.194
+ DEBUG [6157dbce] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git )
+ DEBUG [6157dbce] 	5ce6b5175df859b0a134026d61a3107d1ba73803	refs/heads/master
+  INFO [6157dbce] Finished in 6.592 seconds with exit status 0 (successful).
+  INFO [ae5308ee] Running /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases as ssgene-forum@192.168.199.194
+ DEBUG [ae5308ee] Command: /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases
+  INFO [ae5308ee] Finished in 0.019 seconds with exit status 0 (successful).
+ DEBUG [160181c5] Running [ -f /var/www/framework/current/REVISION ] as ssgene-forum@192.168.199.194
+ DEBUG [160181c5] Command: [ -f /var/www/framework/current/REVISION ]
+ DEBUG [160181c5] Finished in 0.018 seconds with exit status 1 (failed).
+ DEBUG [20b671ef] Running [ -f /var/www/framework/repo/HEAD ] as ssgene-forum@192.168.199.194
+ DEBUG [20b671ef] Command: [ -f /var/www/framework/repo/HEAD ]
+ DEBUG [20b671ef] Finished in 0.011 seconds with exit status 1 (failed).
+ DEBUG [93ebed15] Running if test ! -d /var/www/framework; then echo "Directory does not exist '/var/www/framework'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [93ebed15] Command: if test ! -d /var/www/framework; then echo "Directory does not exist '/var/www/framework'" 1>&2; false; fi
+ DEBUG [93ebed15] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [06d2cc87] Running /usr/bin/env git clone --mirror git@github.com:liu7899/framework.git /var/www/framework/repo as ssgene-forum@192.168.199.194
+ DEBUG [06d2cc87] Command: cd /var/www/framework && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git clone --mirror git@github.com:liu7899/framework.git /var/www/framework/repo )
+ DEBUG [06d2cc87] 	Cloning into bare repository '/var/www/framework/repo'...
+ DEBUG [06d2cc87] 	remote: Counting objects: 109, done.[K
+ DEBUG [06d2cc87] 	remote: Compressing objects:   1% (1/85)   [Kremote: Compressing objects:   2% (2/85)   [Kremote: Compressing objects:   3% (3/85)   [Kremote: Compressing objects:   4% (4/85)   [Kremote: Compressing objects:   5% (5/85)   [Kremote: Compressing objects:   7% (6/85)   [Kremote: Compressing objects:   8% (7/85)   [Kremote: Compressing objects:   9% (8/85)   [Kremote: Compressing objects:  10% (9/85)   [Kremote: Compressing objects:  11% (10/85)   [Kremote: Compressing objects:  12% (11/85)   [Kremote: Compressing objects:  14% (12/85)   [Kremote: Compressing objects:  15% (13/85)   [Kremote: Compressing objects:  16% (14/85)   [Kremote: Compressing objects:  17% (15/85)   [Kremote: Compressing objects:  18% (16/85)   [Kremote: Compressing objects:  20% (17/85)   [K
+ DEBUG [06d2cc87] 	remote: Compressing objects:  21% (18/85)   [Kremote: Compressing objects:  22% (19/85)   [Kremote: Compressing objects:  23% (20/85)   [Kremote: Compressing objects:  24% (21/85)   [Kremote: Compressing objects:  25% (22/85)   [Kremote: Compressing objects:  27% (23/85)   [Kremote: Compressing objects:  28% (24/85)   [Kremote: Compressing objects:  29% (25/85)   [Kremote: Compressing objects:  30% (26/85)   [Kremote: Compressing objects:  31% (27/85)   [Kremote: Compressing objects:  32% (28/85)   [Kremote: Compressing objects:  34% (29/85)   [Kremote: Compressing objects:  35% (30/85)   [Kremote: Compressing objects:  36% (31/85)   [Kremote: Compressing objects:  37% (32/85)   [Kremote: Compressing objects:  38% (33/85)   [Kremote: Compressing objects:  40% (34/85)   [Kremote: Compressing objects:  41% (35/85)   [Kremote: Compressing objects:  42% (36/85)   [Kremote: Compressing objects:  43% (37/85)   [Kremote: Compressing objects:  44% (38/85)   [Kremote: Compressing objects:  45% (39/85)   [Kremote: Compressing objects:  47% (40/85)   [Kremote: Compressing objects:  48% (41/85)   [Kremote: Compressing objects:  49% (42/85)   [Kremote: Compressing objects:  50% (43/85)   [Kremote: Compressing objects:  51% (44/85)   [Kremote: Compressing objects:  52% (45/85)   [Kremote: Compressing objects:  54% (46/85)   [Kremote: Compressing objects:  55% (47/85)   [Kremote: Compressing objects:  56% (48/85)   [Kremote: Compressing objects:  57% (49/85)   [Kremote: Compressing objects:  58% (50/85)   [Kremote: Compressing objects:  60% (51/85)   [Kremote: Compressing objects:  61% (52/85)   [Kremote: Compressing objects:  62% (53/85)   [Kremote: Compressing objects:  63% (54/85)   [Kremote: Compressing objects:  64% (55/85)   [Kremote: Compressing objects:  65% (56/85)   [Kremote: Compressing objects:  67% (57/85)   [Kremote: Compressing objects:  68% (58/85)   [Kremote: Compressing objects:  69% (59/85)   [Kremote: Compressing objects:  70% (60/85)   [K
+ DEBUG [06d2cc87] 	remote: Compressing objects:  71% (61/85)   [Kremote: Compressing objects:  72% (62/85)   [Kremote: Compressing objects:  74% (63/85)   [Kremote: Compressing objects:  75% (64/85)   [Kremote: Compressing objects:  76% (65/85)   [Kremote: Compressing objects:  77% (66/85)   [Kremote: Compressing objects:  78% (67/85)   [Kremote: Compressing objects:  80% (68/85)   [Kremote: Compressing objects:  81% (69/85)   [Kremote: Compressing objects:  82% (70/85)   [Kremote: Compressing objects:  83% (71/85)   [Kremote: Compressing objects:  84% (72/85)   [Kremote: Compressing objects:  85% (73/85)   [Kremote: Compressing objects:  87% (74/85)   [Kremote: Compressing objects:  88% (75/85)   [Kremote: Compressing objects:  89% (76/85)   [Kremote: Compressing objects:  90% (77/85)   [Kremote: Compressing objects:  91% (78/85)   [Kremote: Compressing objects:  92% (79/85)   [Kremote: Compressing objects:  94% (80/85)   [Kremote: Compressing objects:  95% (81/85)   [Kremote: Compressing objects:  96% (82/85)   [Kremote: Compressing objects:  97% (83/85)   [Kremote: Compressing objects:  98% (84/85)   [Kremote: Compressing objects: 100% (85/85)   [Kremote: Compressing objects: 100% (85/85), done.[K
+ DEBUG [06d2cc87] 	Receiving objects:   0% (1/109)   Receiving objects:   1% (2/109)   Receiving objects:   2% (3/109)   Receiving objects:   3% (4/109)   Receiving objects:   4% (5/109)   Receiving objects:   5% (6/109)   Receiving objects:   6% (7/109)   Receiving objects:   7% (8/109)   Receiving objects:   8% (9/109)   Receiving objects:   9% (10/109)   Receiving objects:  10% (11/109)   Receiving objects:  11% (12/109)   Receiving objects:  12% (14/109)   Receiving objects:  13% (15/109)   Receiving objects:  14% (16/109)   Receiving objects:  15% (17/109)   Receiving objects:  16% (18/109)   Receiving objects:  17% (19/109)   Receiving objects:  18% (20/109)   Receiving objects:  19% (21/109)   Receiving objects:  20% (22/109)   Receiving objects:  21% (23/109)   Receiving objects:  22% (24/109)   Receiving objects:  23% (26/109)   Receiving objects:  24% (27/109)   Receiving objects:  25% (28/109)   Receiving objects:  26% (29/109)   Receiving objects:  27% (30/109)   Receiving objects:  28% (31/109)   Receiving objects:  29% (32/109)   Receiving objects:  30% (33/109)   Receiving objects:  31% (34/109)   Receiving objects:  32% (35/109)   Receiving objects:  33% (36/109)   Receiving objects:  34% (38/109)   Receiving objects:  35% (39/109)   Receiving objects:  36% (40/109)   Receiving objects:  37% (41/109)   Receiving objects:  38% (42/109)   Receiving objects:  39% (43/109)   Receiving objects:  40% (44/109)   Receiving objects:  41% (45/109)   Receiving objects:  42% (46/109)   Receiving objects:  43% (47/109)   
+ DEBUG [06d2cc87] 	remote: Total 109 (delta 9), reused 107 (delta 7), pack-reused 0[K
+Receiving objects:  43% (47/109), 12.00 KiB | 2.00 KiB/s   
+ DEBUG [06d2cc87] 	Receiving objects:  44% (48/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  45% (50/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  46% (51/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  47% (52/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  48% (53/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  49% (54/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  50% (55/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  51% (56/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  52% (57/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  53% (58/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  54% (59/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  55% (60/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  56% (62/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  57% (63/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  58% (64/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  59% (65/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  60% (66/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  61% (67/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  62% (68/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  63% (69/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  64% (70/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  65% (71/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  66% (72/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  67% (74/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  68% (75/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  69% (76/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  70% (77/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  71% (78/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  72% (79/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  73% (80/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  74% (81/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  75% (82/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  76% (83/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  77% (84/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  78% (86/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  79% (87/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  80% (88/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  81% (89/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  82% (90/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  83% (91/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  84% (92/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  85% (93/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  86% (94/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  87% (95/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  88% (96/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  89% (98/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  90% (99/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  91% (100/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  92% (101/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  93% (102/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  94% (103/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  95% (104/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  96% (105/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  97% (106/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  98% (107/109), 12.00 KiB | 2.00 KiB/s   Receiving objects:  99% (108/109), 12.00 KiB | 2.00 KiB/s   Receiving objects: 100% (109/109), 12.00 KiB | 2.00 KiB/s   Receiving objects: 100% (109/109), 25.02 KiB | 2.00 KiB/s, done.
+ DEBUG [06d2cc87] 	Resolving deltas:   0% (0/9)   Resolving deltas:  22% (2/9)   Resolving deltas:  33% (3/9)   Resolving deltas:  44% (4/9)   Resolving deltas:  66% (6/9)   Resolving deltas:  77% (7/9)   Resolving deltas: 100% (9/9)   
+ DEBUG [06d2cc87] 	Resolving deltas: 100% (9/9), done.
+ DEBUG [06d2cc87] 	Checking connectivity... 
+ DEBUG [06d2cc87] 	done.
+  INFO [06d2cc87] Finished in 12.734 seconds with exit status 0 (successful).
+ DEBUG [20b4eb2e] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [20b4eb2e] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [20b4eb2e] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [6bec0f11] Running /usr/bin/env git remote update --prune as ssgene-forum@192.168.199.194
+ DEBUG [6bec0f11] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [6bec0f11] 	Fetching origin
+  INFO [6bec0f11] Finished in 3.196 seconds with exit status 0 (successful).
+ DEBUG [5f5e76c0] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [5f5e76c0] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [5f5e76c0] Finished in 0.015 seconds with exit status 0 (successful).
+  INFO [611cc625] Running /usr/bin/env mkdir -p /var/www/framework/releases/20161123084212 as ssgene-forum@192.168.199.194
+ DEBUG [611cc625] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env mkdir -p /var/www/framework/releases/20161123084212 )
+  INFO [611cc625] Finished in 0.022 seconds with exit status 0 (successful).
+  INFO [ffe454d2] Running /usr/bin/env git archive master | tar -x -f - -C /var/www/framework/releases/20161123084212 as ssgene-forum@192.168.199.194
+ DEBUG [ffe454d2] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git archive master | tar -x -f - -C /var/www/framework/releases/20161123084212 )
+  INFO [ffe454d2] Finished in 0.022 seconds with exit status 0 (successful).
+ DEBUG [e1b59291] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [e1b59291] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [e1b59291] Finished in 0.016 seconds with exit status 0 (successful).
+ DEBUG [93ec3138] Running /usr/bin/env git rev-list --max-count=1 master as ssgene-forum@192.168.199.194
+ DEBUG [93ec3138] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [93ec3138] 	5ce6b5175df859b0a134026d61a3107d1ba73803
+ DEBUG [93ec3138] Finished in 0.224 seconds with exit status 0 (successful).
+ DEBUG [84fb791c] Running if test ! -d /var/www/framework/releases/20161123084212; then echo "Directory does not exist '/var/www/framework/releases/20161123084212'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [84fb791c] Command: if test ! -d /var/www/framework/releases/20161123084212; then echo "Directory does not exist '/var/www/framework/releases/20161123084212'" 1>&2; false; fi
+ DEBUG [84fb791c] Finished in 0.012 seconds with exit status 0 (successful).
+  INFO [aad6e12b] Running /usr/bin/env echo "5ce6b5175df859b0a134026d61a3107d1ba73803" >> REVISION as ssgene-forum@192.168.199.194
+ DEBUG [aad6e12b] Command: cd /var/www/framework/releases/20161123084212 && /usr/bin/env echo "5ce6b5175df859b0a134026d61a3107d1ba73803" >> REVISION
+  INFO [aad6e12b] Finished in 0.015 seconds with exit status 0 (successful).
+  INFO [0a91033a] Running /usr/bin/env ln -s /var/www/framework/releases/20161123084212 /var/www/framework/releases/current as ssgene-forum@192.168.199.194
+ DEBUG [0a91033a] Command: /usr/bin/env ln -s /var/www/framework/releases/20161123084212 /var/www/framework/releases/current
+  INFO [0a91033a] Finished in 0.016 seconds with exit status 0 (successful).
+  INFO [0b64ac27] Running /usr/bin/env mv /var/www/framework/releases/current /var/www/framework as ssgene-forum@192.168.199.194
+ DEBUG [0b64ac27] Command: /usr/bin/env mv /var/www/framework/releases/current /var/www/framework
+  INFO [0b64ac27] Finished in 0.021 seconds with exit status 0 (successful).
+ DEBUG [c6683aa6] Running /usr/bin/env ls -xtr /var/www/framework/releases as ssgene-forum@192.168.199.194
+ DEBUG [c6683aa6] Command: /usr/bin/env ls -xtr /var/www/framework/releases
+ DEBUG [c6683aa6] 	20161123084212
+ DEBUG [c6683aa6] Finished in 0.021 seconds with exit status 0 (successful).
+ DEBUG [4250a069] Running if test ! -d /var/www/framework/releases; then echo "Directory does not exist '/var/www/framework/releases'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [4250a069] Command: if test ! -d /var/www/framework/releases; then echo "Directory does not exist '/var/www/framework/releases'" 1>&2; false; fi
+ DEBUG [4250a069] Finished in 0.025 seconds with exit status 0 (successful).
+  INFO [f0b82715] Running /usr/bin/env echo "Branch master (at 5ce6b5175df859b0a134026d61a3107d1ba73803) deployed as release 20161123084212 by liu" >> /var/www/framework/revisions.log as ssgene-forum@192.168.199.194
+ DEBUG [f0b82715] Command: cd /var/www/framework/releases && /usr/bin/env echo "Branch master (at 5ce6b5175df859b0a134026d61a3107d1ba73803) deployed as release 20161123084212 by liu" >> /var/www/framework/revisions.log
+  INFO [f0b82715] Finished in 0.017 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-11-23 16:51:46 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [9bf3ad7e] Running /usr/bin/env mkdir -p /tmp as ssgene-forum@192.168.199.194
+ DEBUG [9bf3ad7e] Command: /usr/bin/env mkdir -p /tmp
+  INFO [9bf3ad7e] Finished in 0.506 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-framework-production-liu.sh 0.0%
+  INFO Uploading /tmp/git-ssh-framework-production-liu.sh 100.0%
+  INFO [1ab3dc16] Running /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh as ssgene-forum@192.168.199.194
+ DEBUG [1ab3dc16] Command: /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh
+  INFO [1ab3dc16] Finished in 0.016 seconds with exit status 0 (successful).
+  INFO [bdf65098] Running /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git as ssgene-forum@192.168.199.194
+ DEBUG [bdf65098] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git )
+ DEBUG [bdf65098] 	5ce6b5175df859b0a134026d61a3107d1ba73803	refs/heads/master
+  INFO [bdf65098] Finished in 3.074 seconds with exit status 0 (successful).
+  INFO [9611b888] Running /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases as ssgene-forum@192.168.199.194
+ DEBUG [9611b888] Command: /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases
+  INFO [9611b888] Finished in 0.015 seconds with exit status 0 (successful).
+ DEBUG [6664e740] Running [ -f /var/www/framework/current/REVISION ] as ssgene-forum@192.168.199.194
+ DEBUG [6664e740] Command: [ -f /var/www/framework/current/REVISION ]
+ DEBUG [6664e740] Finished in 0.018 seconds with exit status 0 (successful).
+ DEBUG [21d55e88] Running /usr/bin/env cat /var/www/framework/current/REVISION 2>/dev/null as ssgene-forum@192.168.199.194
+ DEBUG [21d55e88] Command: /usr/bin/env cat /var/www/framework/current/REVISION 2>/dev/null
+ DEBUG [21d55e88] 	5ce6b5175df859b0a134026d61a3107d1ba73803
+ DEBUG [21d55e88] Finished in 0.013 seconds with exit status 0 (successful).
+ DEBUG [75143c9f] Running [ -f /var/www/framework/repo/HEAD ] as ssgene-forum@192.168.199.194
+ DEBUG [75143c9f] Command: [ -f /var/www/framework/repo/HEAD ]
+ DEBUG [75143c9f] Finished in 0.013 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/framework/repo
+ DEBUG [fff3d9ff] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [fff3d9ff] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [fff3d9ff] Finished in 0.011 seconds with exit status 0 (successful).
+  INFO [f3684a5d] Running /usr/bin/env git remote update --prune as ssgene-forum@192.168.199.194
+ DEBUG [f3684a5d] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [f3684a5d] 	Fetching origin
+  INFO [f3684a5d] Finished in 3.569 seconds with exit status 0 (successful).
+ DEBUG [e6290be6] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [e6290be6] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [e6290be6] Finished in 0.013 seconds with exit status 0 (successful).
+  INFO [44e6c223] Running /usr/bin/env mkdir -p /var/www/framework/releases/20161123085151 as ssgene-forum@192.168.199.194
+ DEBUG [44e6c223] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env mkdir -p /var/www/framework/releases/20161123085151 )
+  INFO [44e6c223] Finished in 0.015 seconds with exit status 0 (successful).
+  INFO [37e0079a] Running /usr/bin/env git archive dd | tar -x -f - -C /var/www/framework/releases/20161123085151 as ssgene-forum@192.168.199.194
+ DEBUG [37e0079a] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git archive dd | tar -x -f - -C /var/www/framework/releases/20161123085151 )
+ DEBUG [37e0079a] 	fatal: Not a valid object name
+ DEBUG [37e0079a] 	tar: This does not look like a tar archive
+tar: Exiting with failure status due to previous errors
