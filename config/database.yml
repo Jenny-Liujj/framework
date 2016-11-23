@@ -1,0 +1,21 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  username: <%= Settings.database.username %>
+  password: <%= Settings.database.password %>
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  database: frame_development
+
+
+test:
+  <<: *default
+  database: frame_test
+
+production:
+  <<: *default
+  database: frame_production
+  username: frame
+  password: <%= ENV['FRAME_DATABASE_PASSWORD'] %>
