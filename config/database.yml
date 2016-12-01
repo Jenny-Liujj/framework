@@ -17,5 +17,3 @@ test:
 production:
   <<: *default
   database: frame_production
-  username: frame
-  password: <%= ENV['FRAME_DATABASE_PASSWORD'] %>

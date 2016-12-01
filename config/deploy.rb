@@ -17,7 +17,6 @@ set :linked_files, %w{
  config/database.yml
  config/secrets.yml
  config/settings.yml
- config/rsa_private_key.pem
 }
 set :ssh_options, { forward_agent: true, port: 22 }
 SSHKit.config.command_map[:rake]  = 'bundle exec rake'

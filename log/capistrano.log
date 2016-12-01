@@ -1098,3 +1098,68 @@ remote: Compressing objects:  50% (1/2)   [Kremote: Compressing objects: 100% 
   INFO [cc2d574b] Running /usr/bin/env echo "Branch master (at 2afcde32ac87fd96ea696f5ac18389a5baca53a5) deployed as release 20161201093915 by liu" >> /var/www/framework/revisions.log as ssgene-forum@192.168.199.194
  DEBUG [cc2d574b] Command: cd /var/www/framework/releases && /usr/bin/env echo "Branch master (at 2afcde32ac87fd96ea696f5ac18389a5baca53a5) deployed as release 20161201093915 by liu" >> /var/www/framework/revisions.log
   INFO [cc2d574b] Finished in 0.013 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-12-01 17:47:05 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [d0d6efab] Running /usr/bin/env mkdir -p /tmp as ssgene-forum@192.168.199.194
+ DEBUG [d0d6efab] Command: /usr/bin/env mkdir -p /tmp
+  INFO [d0d6efab] Finished in 0.235 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-framework-production-liu.sh 0.0%
+  INFO Uploading /tmp/git-ssh-framework-production-liu.sh 100.0%
+  INFO [af01c309] Running /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh as ssgene-forum@192.168.199.194
+ DEBUG [af01c309] Command: /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh
+  INFO [af01c309] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [63d9c0e7] Running /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git as ssgene-forum@192.168.199.194
+ DEBUG [63d9c0e7] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git )
+ DEBUG [63d9c0e7] 	4fb08752c207ade82745e8fb999d3b8e6e0423db	refs/heads/master
+  INFO [63d9c0e7] Finished in 5.398 seconds with exit status 0 (successful).
+  INFO [9126fa9c] Running /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases as ssgene-forum@192.168.199.194
+ DEBUG [9126fa9c] Command: /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases
+  INFO [9126fa9c] Finished in 0.019 seconds with exit status 0 (successful).
+  INFO [092a754a] Running /usr/bin/env mkdir -p /var/www/framework/shared/log /var/www/framework/shared/tmp/pids /var/www/framework/shared/tmp/cache /var/www/framework/shared/tmp/sockets /var/www/framework/shared/public/system as ssgene-forum@192.168.199.194
+ DEBUG [092a754a] Command: /usr/bin/env mkdir -p /var/www/framework/shared/log /var/www/framework/shared/tmp/pids /var/www/framework/shared/tmp/cache /var/www/framework/shared/tmp/sockets /var/www/framework/shared/public/system
+  INFO [092a754a] Finished in 0.015 seconds with exit status 0 (successful).
+  INFO [783c4a21] Running /usr/bin/env mkdir -p /var/www/framework/shared/config as ssgene-forum@192.168.199.194
+ DEBUG [783c4a21] Command: /usr/bin/env mkdir -p /var/www/framework/shared/config
+  INFO [783c4a21] Finished in 0.026 seconds with exit status 0 (successful).
+ DEBUG [0e4e6477] Running [ -f /var/www/framework/shared/config/database.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [0e4e6477] Command: [ -f /var/www/framework/shared/config/database.yml ]
+ DEBUG [0e4e6477] Finished in 0.017 seconds with exit status 1 (failed).
+ ERROR linked file /var/www/framework/shared/config/database.yml does not exist on 192.168.199.194
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-12-01 17:51:50 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [db6de3c2] Running /usr/bin/env mkdir -p /tmp as ssgene-forum@192.168.199.194
+ DEBUG [db6de3c2] Command: /usr/bin/env mkdir -p /tmp
+  INFO [db6de3c2] Finished in 0.275 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-framework-production-liu.sh 0.0%
+  INFO Uploading /tmp/git-ssh-framework-production-liu.sh 100.0%
+  INFO [f643aeea] Running /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh as ssgene-forum@192.168.199.194
+ DEBUG [f643aeea] Command: /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh
+  INFO [f643aeea] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [e24dccf8] Running /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git as ssgene-forum@192.168.199.194
+ DEBUG [e24dccf8] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git )
+ DEBUG [e24dccf8] 	4fb08752c207ade82745e8fb999d3b8e6e0423db	refs/heads/master
+  INFO [e24dccf8] Finished in 5.265 seconds with exit status 0 (successful).
+  INFO [60b65f6c] Running /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases as ssgene-forum@192.168.199.194
+ DEBUG [60b65f6c] Command: /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases
+  INFO [60b65f6c] Finished in 0.031 seconds with exit status 0 (successful).
+  INFO [db5ccb8b] Running /usr/bin/env mkdir -p /var/www/framework/shared/log /var/www/framework/shared/tmp/pids /var/www/framework/shared/tmp/cache /var/www/framework/shared/tmp/sockets /var/www/framework/shared/public/system as ssgene-forum@192.168.199.194
+ DEBUG [db5ccb8b] Command: /usr/bin/env mkdir -p /var/www/framework/shared/log /var/www/framework/shared/tmp/pids /var/www/framework/shared/tmp/cache /var/www/framework/shared/tmp/sockets /var/www/framework/shared/public/system
+  INFO [db5ccb8b] Finished in 0.033 seconds with exit status 0 (successful).
+  INFO [4becdbb6] Running /usr/bin/env mkdir -p /var/www/framework/shared/config as ssgene-forum@192.168.199.194
+ DEBUG [4becdbb6] Command: /usr/bin/env mkdir -p /var/www/framework/shared/config
+  INFO [4becdbb6] Finished in 0.019 seconds with exit status 0 (successful).
+ DEBUG [0812a218] Running [ -f /var/www/framework/shared/config/database.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [0812a218] Command: [ -f /var/www/framework/shared/config/database.yml ]
+ DEBUG [0812a218] Finished in 0.014 seconds with exit status 0 (successful).
+ DEBUG [20495538] Running [ -f /var/www/framework/shared/config/secrets.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [20495538] Command: [ -f /var/www/framework/shared/config/secrets.yml ]
+ DEBUG [20495538] Finished in 0.014 seconds with exit status 0 (successful).
+ DEBUG [16cdec2f] Running [ -f /var/www/framework/shared/config/settings.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [16cdec2f] Command: [ -f /var/www/framework/shared/config/settings.yml ]
+ DEBUG [16cdec2f] Finished in 0.010 seconds with exit status 0 (successful).
+ DEBUG [e29ed73b] Running [ -f /var/www/framework/shared/config/rsa_private_key.pem ] as ssgene-forum@192.168.199.194
+ DEBUG [e29ed73b] Command: [ -f /var/www/framework/shared/config/rsa_private_key.pem ]
+ DEBUG [e29ed73b] Finished in 0.013 seconds with exit status 1 (failed).
+ ERROR linked file /var/www/framework/shared/config/rsa_private_key.pem does not exist on 192.168.199.194
