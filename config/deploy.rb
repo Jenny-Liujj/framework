@@ -13,6 +13,17 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache',
                                                'tmp/sockets', 'public/system')
 
 
+set :linked_files, %w{
+ config/database.yml
+ config/secrets.yml
+ config/settings.yml
+ config/rsa_private_key.pem
+}
+set :ssh_options, { forward_agent: true, port: 22 }
+SSHKit.config.command_map[:rake]  = 'bundle exec rake'
+SSHKit.config.command_map[:rails] = 'bundle exec rails'
+
+
 namespace :deploy do
   desc 'Upload configuration files to server.'
   task :setup do
@@ -25,6 +36,8 @@ namespace :deploy do
     end
   end
 end
+
+
 
 namespace :db do
   desc 'Create database if not exist.'
