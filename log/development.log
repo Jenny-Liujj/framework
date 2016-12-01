@@ -164,3 +164,19 @@ WHERE c.contype = 'f'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+Started GET "/" for ::1 at 2016-12-01 18:02:59 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by UsersController#index as HTML
+  Rendering users/index.html.erb within layouts/application
+  Rendered users/index.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 657ms (Views: 628.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/tests" for ::1 at 2016-12-01 18:03:08 +0800
+Processing by TestsController#index as HTML
+  Rendering tests/index.html.erb within layouts/application
+  [1m[36mTest Load (3.0ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
+  Rendered tests/index.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 58ms (Views: 41.8ms | ActiveRecord: 4.8ms)
+
+

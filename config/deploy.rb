@@ -49,4 +49,15 @@ namespace :db do
       end
     end
   end
+  desc 'Runs rake db:migrate on all app server'
+  task :migrate_all => [:set_rails_env] do
+      on roles(:app), in: :parallel do
+          within release_path do
+              with rails_env: fetch(:rails_env) do
+                  execute :rake, "db:migrate"
+              end
+          end
+      end
+  end
+  after :updated, :migrate_all
 end

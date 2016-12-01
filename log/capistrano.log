@@ -1375,3 +1375,197 @@ remote: Compressing objects:  14% (1/7)   [Kremote: Compressing objects:  28% 
   INFO [d9140137] Running /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh as ssgene-forum@192.168.199.194
  DEBUG [d9140137] Command: /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh
   INFO [d9140137] Finished in 0.026 seconds with exit status 0 (successful).
+  INFO ---------------------------------------------------------------------------
+  INFO START 2016-12-01 18:01:55 +0800 cap production deploy
+  INFO ---------------------------------------------------------------------------
+  INFO [37549d9b] Running /usr/bin/env mkdir -p /tmp as ssgene-forum@192.168.199.194
+ DEBUG [37549d9b] Command: /usr/bin/env mkdir -p /tmp
+  INFO [37549d9b] Finished in 0.335 seconds with exit status 0 (successful).
+ DEBUG Uploading /tmp/git-ssh-framework-production-liu.sh 0.0%
+  INFO Uploading /tmp/git-ssh-framework-production-liu.sh 100.0%
+  INFO [ae5a0ee6] Running /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh as ssgene-forum@192.168.199.194
+ DEBUG [ae5a0ee6] Command: /usr/bin/env chmod 700 /tmp/git-ssh-framework-production-liu.sh
+  INFO [ae5a0ee6] Finished in 0.039 seconds with exit status 0 (successful).
+  INFO [e9383386] Running /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git as ssgene-forum@192.168.199.194
+ DEBUG [e9383386] Command: ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git ls-remote --heads git@github.com:liu7899/framework.git )
+ DEBUG [e9383386] 	ba1730bdd875ec4adf5f53e302c83813235098e1	refs/heads/master
+  INFO [e9383386] Finished in 9.149 seconds with exit status 0 (successful).
+  INFO [773f02a8] Running /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases as ssgene-forum@192.168.199.194
+ DEBUG [773f02a8] Command: /usr/bin/env mkdir -p /var/www/framework/shared /var/www/framework/releases
+  INFO [773f02a8] Finished in 0.015 seconds with exit status 0 (successful).
+  INFO [15a24fc1] Running /usr/bin/env mkdir -p /var/www/framework/shared/log /var/www/framework/shared/tmp/pids /var/www/framework/shared/tmp/cache /var/www/framework/shared/tmp/sockets /var/www/framework/shared/public/system as ssgene-forum@192.168.199.194
+ DEBUG [15a24fc1] Command: /usr/bin/env mkdir -p /var/www/framework/shared/log /var/www/framework/shared/tmp/pids /var/www/framework/shared/tmp/cache /var/www/framework/shared/tmp/sockets /var/www/framework/shared/public/system
+  INFO [15a24fc1] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [deeda7c5] Running /usr/bin/env mkdir -p /var/www/framework/shared/config as ssgene-forum@192.168.199.194
+ DEBUG [deeda7c5] Command: /usr/bin/env mkdir -p /var/www/framework/shared/config
+  INFO [deeda7c5] Finished in 0.024 seconds with exit status 0 (successful).
+ DEBUG [6d8d49ad] Running [ -f /var/www/framework/shared/config/database.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [6d8d49ad] Command: [ -f /var/www/framework/shared/config/database.yml ]
+ DEBUG [6d8d49ad] Finished in 0.024 seconds with exit status 0 (successful).
+ DEBUG [3ff79bbd] Running [ -f /var/www/framework/shared/config/secrets.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [3ff79bbd] Command: [ -f /var/www/framework/shared/config/secrets.yml ]
+ DEBUG [3ff79bbd] Finished in 0.021 seconds with exit status 0 (successful).
+ DEBUG [d4f990cd] Running [ -f /var/www/framework/shared/config/settings.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [d4f990cd] Command: [ -f /var/www/framework/shared/config/settings.yml ]
+ DEBUG [d4f990cd] Finished in 0.013 seconds with exit status 0 (successful).
+ DEBUG [c2d3a5b6] Running [ -f /var/www/framework/current/REVISION ] as ssgene-forum@192.168.199.194
+ DEBUG [c2d3a5b6] Command: [ -f /var/www/framework/current/REVISION ]
+ DEBUG [c2d3a5b6] Finished in 0.024 seconds with exit status 0 (successful).
+ DEBUG [08270973] Running /usr/bin/env cat /var/www/framework/current/REVISION 2>/dev/null as ssgene-forum@192.168.199.194
+ DEBUG [08270973] Command: /usr/bin/env cat /var/www/framework/current/REVISION 2>/dev/null
+ DEBUG [08270973] 	af2f5f19f623129f5ad3f4e1d6ec8781f46ecb17
+ DEBUG [08270973] Finished in 0.015 seconds with exit status 0 (successful).
+ DEBUG [ed557e20] Running [ -f /var/www/framework/repo/HEAD ] as ssgene-forum@192.168.199.194
+ DEBUG [ed557e20] Command: [ -f /var/www/framework/repo/HEAD ]
+ DEBUG [ed557e20] Finished in 0.011 seconds with exit status 0 (successful).
+  INFO The repository mirror is at /var/www/framework/repo
+ DEBUG [12600ccf] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [12600ccf] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [12600ccf] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [a1f81cf0] Running /usr/bin/env git remote update --prune as ssgene-forum@192.168.199.194
+ DEBUG [a1f81cf0] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git remote update --prune )
+ DEBUG [a1f81cf0] 	Fetching origin
+ DEBUG [a1f81cf0] 	remote: Counting objects: 38, done.[K
+remote: Compressing objects:   3% (1/26)   [Kremote: Compressing objects:   7% (2/26)   [Kremote: Compressing objects:  11% (3/26)   [Kremote: Compressing objects:  15% (4/26)   [Kremote: Compressing objects:  19% (5/26)   [Kremote: Compressing objects:  23% (6/26)   [Kremote: Compressing objects:  26% (7/26)   [Kremote: Compressing objects:  30% (8/26)   [Kremote: Compressing objects:  34% (9/26)   [Kremote: Compressing objects:  38% (10/26)   [Kremote: Compressing objects:  42% (11/26)   [Kremote: Compressing objects:  46% (12/26)   [Kremote: Compressing objects:  50% (13/26)   [Kremote: Compressing objects:  53% (14/26)   [Kremote: Compressing objects:  57% (15/26)   [Kremote: Compressing objects:  61% (16/26)   [Kremote: Compressing objects:  65% (17/26)   [Kremote: Compressing objects:  69% (18/26)   [Kremote: Compressing objects:  73% (19/26)   [Kremote: Compressing objects:  76% (20/26)   [Kremote: Compressing objects:  80% (21/26)   [Kremote: Compressing objects:  84% (22/26)   [Kremote: Compressing objects:  88% (23/26)   [Kremote: Compressing objects:  92% (24/26)   [Kremote: Compressing objects:  96% (25/26)   [Kremote: Compressing objects: 100% (26/26)   [Kremote: Compressing objects: 100% (26/26), done.[K
+ DEBUG [a1f81cf0] 	remote: Total 38 (delta 9), reused 38 (delta 9), pack-reused 0[K
+ DEBUG [a1f81cf0] 	Unpacking objects:   2% (1/38)   Unpacking objects:   5% (2/38)   Unpacking objects:   7% (3/38)   Unpacking objects:  10% (4/38)   Unpacking objects:  13% (5/38)   Unpacking objects:  15% (6/38)   Unpacking objects:  18% (7/38)   Unpacking objects:  21% (8/38)   Unpacking objects:  23% (9/38)   Unpacking objects:  26% (10/38)   Unpacking objects:  28% (11/38)   Unpacking objects:  31% (12/38)   Unpacking objects:  34% (13/38)   Unpacking objects:  36% (14/38)   Unpacking objects:  39% (15/38)   Unpacking objects:  42% (16/38)   Unpacking objects:  44% (17/38)   Unpacking objects:  47% (18/38)   Unpacking objects:  50% (19/38)   Unpacking objects:  52% (20/38)   Unpacking objects:  55% (21/38)   Unpacking objects:  57% (22/38)   Unpacking objects:  60% (23/38)   Unpacking objects:  63% (24/38)   Unpacking objects:  65% (25/38)   Unpacking objects:  68% (26/38)   Unpacking objects:  71% (27/38)   Unpacking objects:  73% (28/38)   Unpacking objects:  76% (29/38)   Unpacking objects:  78% (30/38)   Unpacking objects:  81% (31/38)   
+ DEBUG [a1f81cf0] 	Unpacking objects:  84% (32/38)   Unpacking objects:  86% (33/38)   Unpacking objects:  89% (34/38)   Unpacking objects:  92% (35/38)   Unpacking objects:  94% (36/38)   Unpacking objects:  97% (37/38)   Unpacking objects: 100% (38/38)   Unpacking objects: 100% (38/38), done.
+ DEBUG [a1f81cf0] 	From github.com:liu7899/framework
+   af2f5f1..ba1730b  master     -> master
+  INFO [a1f81cf0] Finished in 11.640 seconds with exit status 0 (successful).
+ DEBUG [c0458cbe] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [c0458cbe] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [c0458cbe] Finished in 0.017 seconds with exit status 0 (successful).
+  INFO [188624ef] Running /usr/bin/env mkdir -p /var/www/framework/releases/20161201100206 as ssgene-forum@192.168.199.194
+ DEBUG [188624ef] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env mkdir -p /var/www/framework/releases/20161201100206 )
+  INFO [188624ef] Finished in 0.020 seconds with exit status 0 (successful).
+  INFO [773de2ab] Running /usr/bin/env git archive master | tar -x -f - -C /var/www/framework/releases/20161201100206 as ssgene-forum@192.168.199.194
+ DEBUG [773de2ab] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git archive master | tar -x -f - -C /var/www/framework/releases/20161201100206 )
+  INFO [773de2ab] Finished in 0.033 seconds with exit status 0 (successful).
+ DEBUG [a6361d0e] Running if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [a6361d0e] Command: if test ! -d /var/www/framework/repo; then echo "Directory does not exist '/var/www/framework/repo'" 1>&2; false; fi
+ DEBUG [a6361d0e] Finished in 0.013 seconds with exit status 0 (successful).
+ DEBUG [cf78f29b] Running /usr/bin/env git rev-list --max-count=1 master as ssgene-forum@192.168.199.194
+ DEBUG [cf78f29b] Command: cd /var/www/framework/repo && ( export GIT_ASKPASS="/bin/echo" GIT_SSH="/tmp/git-ssh-framework-production-liu.sh" ; /usr/bin/env git rev-list --max-count=1 master )
+ DEBUG [cf78f29b] 	ba1730bdd875ec4adf5f53e302c83813235098e1
+ DEBUG [cf78f29b] Finished in 0.022 seconds with exit status 0 (successful).
+ DEBUG [7ce2a9c5] Running if test ! -d /var/www/framework/releases/20161201100206; then echo "Directory does not exist '/var/www/framework/releases/20161201100206'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [7ce2a9c5] Command: if test ! -d /var/www/framework/releases/20161201100206; then echo "Directory does not exist '/var/www/framework/releases/20161201100206'" 1>&2; false; fi
+ DEBUG [7ce2a9c5] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [312e5552] Running /usr/bin/env echo "ba1730bdd875ec4adf5f53e302c83813235098e1" >> REVISION as ssgene-forum@192.168.199.194
+ DEBUG [312e5552] Command: cd /var/www/framework/releases/20161201100206 && /usr/bin/env echo "ba1730bdd875ec4adf5f53e302c83813235098e1" >> REVISION
+  INFO [312e5552] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [6b8f10bf] Running /usr/bin/env mkdir -p /var/www/framework/releases/20161201100206/config as ssgene-forum@192.168.199.194
+ DEBUG [6b8f10bf] Command: /usr/bin/env mkdir -p /var/www/framework/releases/20161201100206/config
+  INFO [6b8f10bf] Finished in 0.023 seconds with exit status 0 (successful).
+ DEBUG [882cd152] Running [ -L /var/www/framework/releases/20161201100206/config/database.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [882cd152] Command: [ -L /var/www/framework/releases/20161201100206/config/database.yml ]
+ DEBUG [882cd152] Finished in 0.012 seconds with exit status 1 (failed).
+ DEBUG [0095440a] Running [ -f /var/www/framework/releases/20161201100206/config/database.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [0095440a] Command: [ -f /var/www/framework/releases/20161201100206/config/database.yml ]
+ DEBUG [0095440a] Finished in 0.012 seconds with exit status 0 (successful).
+  INFO [5b4e60ef] Running /usr/bin/env rm /var/www/framework/releases/20161201100206/config/database.yml as ssgene-forum@192.168.199.194
+ DEBUG [5b4e60ef] Command: /usr/bin/env rm /var/www/framework/releases/20161201100206/config/database.yml
+  INFO [5b4e60ef] Finished in 0.022 seconds with exit status 0 (successful).
+  INFO [dc19988b] Running /usr/bin/env ln -s /var/www/framework/shared/config/database.yml /var/www/framework/releases/20161201100206/config/database.yml as ssgene-forum@192.168.199.194
+ DEBUG [dc19988b] Command: /usr/bin/env ln -s /var/www/framework/shared/config/database.yml /var/www/framework/releases/20161201100206/config/database.yml
+  INFO [dc19988b] Finished in 0.012 seconds with exit status 0 (successful).
+ DEBUG [1b1f31a4] Running [ -L /var/www/framework/releases/20161201100206/config/secrets.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [1b1f31a4] Command: [ -L /var/www/framework/releases/20161201100206/config/secrets.yml ]
+ DEBUG [1b1f31a4] Finished in 0.014 seconds with exit status 1 (failed).
+ DEBUG [a53aa2b6] Running [ -f /var/www/framework/releases/20161201100206/config/secrets.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [a53aa2b6] Command: [ -f /var/www/framework/releases/20161201100206/config/secrets.yml ]
+ DEBUG [a53aa2b6] Finished in 0.023 seconds with exit status 0 (successful).
+  INFO [bb416fff] Running /usr/bin/env rm /var/www/framework/releases/20161201100206/config/secrets.yml as ssgene-forum@192.168.199.194
+ DEBUG [bb416fff] Command: /usr/bin/env rm /var/www/framework/releases/20161201100206/config/secrets.yml
+  INFO [bb416fff] Finished in 0.017 seconds with exit status 0 (successful).
+  INFO [bebd70a5] Running /usr/bin/env ln -s /var/www/framework/shared/config/secrets.yml /var/www/framework/releases/20161201100206/config/secrets.yml as ssgene-forum@192.168.199.194
+ DEBUG [bebd70a5] Command: /usr/bin/env ln -s /var/www/framework/shared/config/secrets.yml /var/www/framework/releases/20161201100206/config/secrets.yml
+  INFO [bebd70a5] Finished in 0.020 seconds with exit status 0 (successful).
+ DEBUG [910d9478] Running [ -L /var/www/framework/releases/20161201100206/config/settings.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [910d9478] Command: [ -L /var/www/framework/releases/20161201100206/config/settings.yml ]
+ DEBUG [910d9478] Finished in 0.016 seconds with exit status 1 (failed).
+ DEBUG [1f8f4a48] Running [ -f /var/www/framework/releases/20161201100206/config/settings.yml ] as ssgene-forum@192.168.199.194
+ DEBUG [1f8f4a48] Command: [ -f /var/www/framework/releases/20161201100206/config/settings.yml ]
+ DEBUG [1f8f4a48] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [0f11f730] Running /usr/bin/env rm /var/www/framework/releases/20161201100206/config/settings.yml as ssgene-forum@192.168.199.194
+ DEBUG [0f11f730] Command: /usr/bin/env rm /var/www/framework/releases/20161201100206/config/settings.yml
+  INFO [0f11f730] Finished in 0.015 seconds with exit status 0 (successful).
+  INFO [f1c14afd] Running /usr/bin/env ln -s /var/www/framework/shared/config/settings.yml /var/www/framework/releases/20161201100206/config/settings.yml as ssgene-forum@192.168.199.194
+ DEBUG [f1c14afd] Command: /usr/bin/env ln -s /var/www/framework/shared/config/settings.yml /var/www/framework/releases/20161201100206/config/settings.yml
+  INFO [f1c14afd] Finished in 0.019 seconds with exit status 0 (successful).
+  INFO [fbd82414] Running /usr/bin/env mkdir -p /var/www/framework/releases/20161201100206 /var/www/framework/releases/20161201100206/tmp /var/www/framework/releases/20161201100206/public as ssgene-forum@192.168.199.194
+ DEBUG [fbd82414] Command: /usr/bin/env mkdir -p /var/www/framework/releases/20161201100206 /var/www/framework/releases/20161201100206/tmp /var/www/framework/releases/20161201100206/public
+  INFO [fbd82414] Finished in 0.017 seconds with exit status 0 (successful).
+ DEBUG [acb4ba0f] Running [ -L /var/www/framework/releases/20161201100206/log ] as ssgene-forum@192.168.199.194
+ DEBUG [acb4ba0f] Command: [ -L /var/www/framework/releases/20161201100206/log ]
+ DEBUG [acb4ba0f] Finished in 0.015 seconds with exit status 1 (failed).
+ DEBUG [bda8a73b] Running [ -d /var/www/framework/releases/20161201100206/log ] as ssgene-forum@192.168.199.194
+ DEBUG [bda8a73b] Command: [ -d /var/www/framework/releases/20161201100206/log ]
+ DEBUG [bda8a73b] Finished in 0.013 seconds with exit status 0 (successful).
+  INFO [68b50fe4] Running /usr/bin/env rm -rf /var/www/framework/releases/20161201100206/log as ssgene-forum@192.168.199.194
+ DEBUG [68b50fe4] Command: /usr/bin/env rm -rf /var/www/framework/releases/20161201100206/log
+  INFO [68b50fe4] Finished in 0.014 seconds with exit status 0 (successful).
+  INFO [15237e44] Running /usr/bin/env ln -s /var/www/framework/shared/log /var/www/framework/releases/20161201100206/log as ssgene-forum@192.168.199.194
+ DEBUG [15237e44] Command: /usr/bin/env ln -s /var/www/framework/shared/log /var/www/framework/releases/20161201100206/log
+  INFO [15237e44] Finished in 0.020 seconds with exit status 0 (successful).
+ DEBUG [75f1c64d] Running [ -L /var/www/framework/releases/20161201100206/tmp/pids ] as ssgene-forum@192.168.199.194
+ DEBUG [75f1c64d] Command: [ -L /var/www/framework/releases/20161201100206/tmp/pids ]
+ DEBUG [75f1c64d] Finished in 0.012 seconds with exit status 1 (failed).
+ DEBUG [50052041] Running [ -d /var/www/framework/releases/20161201100206/tmp/pids ] as ssgene-forum@192.168.199.194
+ DEBUG [50052041] Command: [ -d /var/www/framework/releases/20161201100206/tmp/pids ]
+ DEBUG [50052041] Finished in 0.013 seconds with exit status 1 (failed).
+  INFO [4d1bdf5b] Running /usr/bin/env ln -s /var/www/framework/shared/tmp/pids /var/www/framework/releases/20161201100206/tmp/pids as ssgene-forum@192.168.199.194
+ DEBUG [4d1bdf5b] Command: /usr/bin/env ln -s /var/www/framework/shared/tmp/pids /var/www/framework/releases/20161201100206/tmp/pids
+  INFO [4d1bdf5b] Finished in 0.018 seconds with exit status 0 (successful).
+ DEBUG [73e5fb60] Running [ -L /var/www/framework/releases/20161201100206/tmp/cache ] as ssgene-forum@192.168.199.194
+ DEBUG [73e5fb60] Command: [ -L /var/www/framework/releases/20161201100206/tmp/cache ]
+ DEBUG [73e5fb60] Finished in 0.012 seconds with exit status 1 (failed).
+ DEBUG [9925f520] Running [ -d /var/www/framework/releases/20161201100206/tmp/cache ] as ssgene-forum@192.168.199.194
+ DEBUG [9925f520] Command: [ -d /var/www/framework/releases/20161201100206/tmp/cache ]
+ DEBUG [9925f520] Finished in 0.016 seconds with exit status 0 (successful).
+  INFO [9b6b94dd] Running /usr/bin/env rm -rf /var/www/framework/releases/20161201100206/tmp/cache as ssgene-forum@192.168.199.194
+ DEBUG [9b6b94dd] Command: /usr/bin/env rm -rf /var/www/framework/releases/20161201100206/tmp/cache
+  INFO [9b6b94dd] Finished in 0.028 seconds with exit status 0 (successful).
+  INFO [fcfdadcd] Running /usr/bin/env ln -s /var/www/framework/shared/tmp/cache /var/www/framework/releases/20161201100206/tmp/cache as ssgene-forum@192.168.199.194
+ DEBUG [fcfdadcd] Command: /usr/bin/env ln -s /var/www/framework/shared/tmp/cache /var/www/framework/releases/20161201100206/tmp/cache
+  INFO [fcfdadcd] Finished in 0.025 seconds with exit status 0 (successful).
+ DEBUG [3c343125] Running [ -L /var/www/framework/releases/20161201100206/tmp/sockets ] as ssgene-forum@192.168.199.194
+ DEBUG [3c343125] Command: [ -L /var/www/framework/releases/20161201100206/tmp/sockets ]
+ DEBUG [3c343125] Finished in 0.015 seconds with exit status 1 (failed).
+ DEBUG [d71ad529] Running [ -d /var/www/framework/releases/20161201100206/tmp/sockets ] as ssgene-forum@192.168.199.194
+ DEBUG [d71ad529] Command: [ -d /var/www/framework/releases/20161201100206/tmp/sockets ]
+ DEBUG [d71ad529] Finished in 0.019 seconds with exit status 1 (failed).
+  INFO [d2da7012] Running /usr/bin/env ln -s /var/www/framework/shared/tmp/sockets /var/www/framework/releases/20161201100206/tmp/sockets as ssgene-forum@192.168.199.194
+ DEBUG [d2da7012] Command: /usr/bin/env ln -s /var/www/framework/shared/tmp/sockets /var/www/framework/releases/20161201100206/tmp/sockets
+  INFO [d2da7012] Finished in 0.019 seconds with exit status 0 (successful).
+ DEBUG [2b86432d] Running [ -L /var/www/framework/releases/20161201100206/public/system ] as ssgene-forum@192.168.199.194
+ DEBUG [2b86432d] Command: [ -L /var/www/framework/releases/20161201100206/public/system ]
+ DEBUG [2b86432d] Finished in 0.020 seconds with exit status 1 (failed).
+ DEBUG [6e271148] Running [ -d /var/www/framework/releases/20161201100206/public/system ] as ssgene-forum@192.168.199.194
+ DEBUG [6e271148] Command: [ -d /var/www/framework/releases/20161201100206/public/system ]
+ DEBUG [6e271148] Finished in 0.040 seconds with exit status 1 (failed).
+  INFO [889aff20] Running /usr/bin/env ln -s /var/www/framework/shared/public/system /var/www/framework/releases/20161201100206/public/system as ssgene-forum@192.168.199.194
+ DEBUG [889aff20] Command: /usr/bin/env ln -s /var/www/framework/shared/public/system /var/www/framework/releases/20161201100206/public/system
+  INFO [889aff20] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO [2e8f08e4] Running /usr/bin/env ln -s /var/www/framework/releases/20161201100206 /var/www/framework/releases/current as ssgene-forum@192.168.199.194
+ DEBUG [2e8f08e4] Command: /usr/bin/env ln -s /var/www/framework/releases/20161201100206 /var/www/framework/releases/current
+  INFO [2e8f08e4] Finished in 0.020 seconds with exit status 0 (successful).
+  INFO [c1caa7b7] Running /usr/bin/env mv /var/www/framework/releases/current /var/www/framework as ssgene-forum@192.168.199.194
+ DEBUG [c1caa7b7] Command: /usr/bin/env mv /var/www/framework/releases/current /var/www/framework
+  INFO [c1caa7b7] Finished in 0.020 seconds with exit status 0 (successful).
+ DEBUG [04e582e5] Running /usr/bin/env ls -xtr /var/www/framework/releases as ssgene-forum@192.168.199.194
+ DEBUG [04e582e5] Command: /usr/bin/env ls -xtr /var/www/framework/releases
+ DEBUG [04e582e5] 	20161201055150	20161201055331	20161201064405	20161201093915	20161201095638
+20161201100206
+ DEBUG [04e582e5] Finished in 0.018 seconds with exit status 0 (successful).
+  INFO Keeping 5 of 6 deployed releases on 192.168.199.194
+  INFO [6896a649] Running /usr/bin/env rm -rf /var/www/framework/releases/20161201055150 as ssgene-forum@192.168.199.194
+ DEBUG [6896a649] Command: /usr/bin/env rm -rf /var/www/framework/releases/20161201055150
+  INFO [6896a649] Finished in 0.022 seconds with exit status 0 (successful).
+ DEBUG [4f759a6f] Running if test ! -d /var/www/framework/releases; then echo "Directory does not exist '/var/www/framework/releases'" 1>&2; false; fi as ssgene-forum@192.168.199.194
+ DEBUG [4f759a6f] Command: if test ! -d /var/www/framework/releases; then echo "Directory does not exist '/var/www/framework/releases'" 1>&2; false; fi
+ DEBUG [4f759a6f] Finished in 0.064 seconds with exit status 0 (successful).
+  INFO [9a1fc10f] Running /usr/bin/env echo "Branch master (at ba1730bdd875ec4adf5f53e302c83813235098e1) deployed as release 20161201100206 by liu" >> /var/www/framework/revisions.log as ssgene-forum@192.168.199.194
+ DEBUG [9a1fc10f] Command: cd /var/www/framework/releases && /usr/bin/env echo "Branch master (at ba1730bdd875ec4adf5f53e302c83813235098e1) deployed as release 20161201100206 by liu" >> /var/www/framework/revisions.log
+  INFO [9a1fc10f] Finished in 0.027 seconds with exit status 0 (successful).
