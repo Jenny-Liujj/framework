@@ -12,7 +12,21 @@ set :pty, true
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache',
                                                'tmp/sockets', 'public/system')
 
+
 namespace :deploy do
+  desc 'Upload configuration files to server.'
+  task :setup do
+    on roles(:web) do |host|
+      execute :mkdir, "-p #{deploy_to}/shared/config"
+      execute :mkdir, "-p #{deploy_to}/shared/tmp/logs #{deploy_to}/shared/tmp/pids #{deploy_to}/shared/tmp/sockets"
+      upload! 'config/database.yml', "#{deploy_to}/shared/config/database.yml"
+      upload! 'config/secrets.yml', "#{deploy_to}/shared/config/secrets.yml"
+      upload! 'config/settings.yml', "#{deploy_to}/shared/config/settings.yml"
+    end
+  end
+end
+
+namespace :db do
   desc 'Create database if not exist.'
   task :create do
     on roles(:db) do
@@ -23,10 +37,4 @@ namespace :deploy do
       end
     end
   end
-  after :restart, :clear_cache do
-    on roles(:web), in: :groups, limit: 3, wait: 10 do
-
-    end
-  end
-
 end
