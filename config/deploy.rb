@@ -13,9 +13,19 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache',
                                                'tmp/sockets', 'public/system')
 
 namespace :deploy do
-
+  desc 'Create database if not exist.'
+  task :create do
+    on roles(:db) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, 'db:create'
+        end
+      end
+    end
+  end
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
+
     end
   end
 
