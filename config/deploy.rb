@@ -59,5 +59,4 @@ namespace :db do
           end
       end
   end
-  after :updated, :migrate_all
 end
