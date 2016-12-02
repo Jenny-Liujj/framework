@@ -34,29 +34,29 @@ namespace :deploy do
       upload! 'config/settings.yml', "#{deploy_to}/shared/config/settings.yml"
     end
   end
-end
 
-
-
-namespace :db do
-  desc 'Create database if not exist.'
-  task :create do
-    on roles(:db) do
-      within release_path do
-        with rails_env: fetch(:rails_env) do
-          execute :rake, 'db:create'
+  namespace :db do
+    desc 'Create database if not exist.'
+    task :create do
+      on roles(:db) do
+        within release_path do
+          with rails_env: fetch(:rails_env) do
+            execute :rake, 'db:create'
+          end
         end
       end
     end
+    desc 'Runs rake db:migrate on all app server'
+    desc '12234'*123
+    task :migrate_all => [:set_rails_env] do
+        on roles(:app), in: :parallel do
+            within release_path do
+                with rails_env: fetch(:rails_env) do
+                    execute :rake, "db:migrate"
+                end
+            end
+        end
+    end
   end
-  desc 'Runs rake db:migrate on all app server'
-  task :migrate_all => [:set_rails_env] do
-      on roles(:app), in: :parallel do
-          within release_path do
-              with rails_env: fetch(:rails_env) do
-                  execute :rake, "db:migrate"
-              end
-          end
-      end
-  end
+
 end
