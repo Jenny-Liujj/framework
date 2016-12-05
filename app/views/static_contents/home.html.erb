@@ -1,0 +1,5 @@
+<% content_for :center_column do %>
+  <div id='home'>
+    <%= render 'posts/list', posts: Post.latest %>
+  </div>
+<% end %>

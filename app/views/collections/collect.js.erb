@@ -1,0 +1,13 @@
+var collect_elem = $('#collect-<%= @collection.collectable_type %>-<%= @collection.collectable_id %>')
+var uncollect_elem = $('#uncollect-<%= @collection.collectable_type %>-<%= @collection.collectable_id %>')
+var collection_count_elem = $('#collection-count-<%= @collection.collectable_type %>-<%= @collection.collectable_id %>')
+
+<% if @collection.is_abused? %>
+  alert('<%= t('collection.message.abuse', collectable_type: t("activerecord.models.#{@collection.collectable_type.downcase}")) %>')
+  collect_elem.addClass('disable')
+  uncollect_elem.addClass('disable')
+<% else %>
+  collect_elem.addClass('hide')
+  uncollect_elem.removeClass('hide')
+  collection_count_elem.html('<%= @collection.collectable.collection_count %>').addClass('collected')
+<% end %>

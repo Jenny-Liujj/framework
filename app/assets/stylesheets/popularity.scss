@@ -1,0 +1,12 @@
+.popularity {
+  display: table-cell;
+  vertical-align: top;
+  padding-top: 0 !important;
+  padding-bottom: $spacing;
+  @media screen and (min-width: 448px) {
+    min-width: 60px;
+  }
+  @media screen and (max-width: 448px) {
+    min-width: 16px;
+  }
+}

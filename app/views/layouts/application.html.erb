@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Frame</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <title>星舰基因论坛</title>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/nav_bar' %>
+    <div id='main-columns'>
+      <%= render 'layouts/top_bar' %>
+      <div class='row'>
+        <%= render 'layouts/center_column' %>
+        <%= render 'layouts/right_column' %>
+      </div>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

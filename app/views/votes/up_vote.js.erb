@@ -1,0 +1,19 @@
+var vote_up_elem = $('#vote-up-<%= @vote.votable_type %>-<%= @vote.votable_id %>')
+var vote_down_elem = $('#vote-down-<%= @vote.votable_type %>-<%= @vote.votable_id %>')
+var vote_count_elem = $('#vote-count-<%= @vote.votable_type %>-<%= @vote.votable_id %>')
+var vote_elem = $('#vote-<%= @vote.votable_type %>-<%= @vote.votable_id %>')
+
+<% if @vote.value == 1 %>
+  vote_up_elem.addClass('disable').addClass('voted')
+<% end %>
+vote_down_elem.removeClass('disable').removeClass('voted')
+
+vote_count_elem.html('<%= @vote.votable.vote_count %>')
+vote_elem.data('vote-value', <%= @vote.value %>)
+
+<% if @vote.is_abused? %>
+  alert('<%= t('vote.message.abuse', votable_type: t("activerecord.models.#{@vote.votable_type.downcase}")) %>')
+  vote_up_elem.addClass('disable')
+  vote_down_elem.addClass('disable')
+  vote_elem.addClass('disable')
+<% end %>

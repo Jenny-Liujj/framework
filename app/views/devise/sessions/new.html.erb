@@ -1,0 +1,26 @@
+<% content_for :center_column do %>
+  <div class='vertical-centered-window-block'>
+    <div class='vertical-centered'>
+      <div class='panel panel-default signin-panel'>
+        <div class='panel-heading center'>
+          <h4>登录</h4>
+        </div>
+        <div class='panel-body'>
+          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class='form-inputs'>
+              <%= f.input :login, autofocus: true %>
+              <%= f.input :password %>
+              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+            </div>
+
+            <div class='form-actions'>
+              <%= f.button :submit, '登录', class: 'btn btn-success btn-block' %>
+            </div>
+          <% end %>
+
+          <%= render 'devise/shared/links' %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

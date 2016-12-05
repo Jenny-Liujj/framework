@@ -1,0 +1,12 @@
+<div class='panel panel-default'>
+  <div class='panel-body narrow-padding'>
+    <%= render inline: search_fields('post',
+        { name: 'title', term: 'cont' }
+      ) %>
+  </div>
+</div>
+<div class='panel panel-default'>
+  <div class='panel-body narrow-padding'>
+    <%= render inline: table_list('post', @posts, ['user.username', :title, :created_at]) %>
+  </div>
+</div>

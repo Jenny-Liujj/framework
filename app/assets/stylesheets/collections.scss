@@ -1,0 +1,14 @@
+.collection {
+  text-align: center;
+  margin-top: $half-spacing;
+
+  .collect-button, .uncollect-button {
+    display: block;
+  }
+  .uncollect-button, .collection-count.collected {
+    color: #FFD83D;
+  }
+  .collection-count {
+    @extend .not-selectable;
+  }
+}

@@ -1,0 +1,4 @@
+$('.accept-comment').css('color', '').removeClass('accepted')
+<% if @comment.status.accepted? %>
+  $('#accept-comment-<%= @comment.id %>').css('color', 'green').addClass('accepted')
+<% end %>

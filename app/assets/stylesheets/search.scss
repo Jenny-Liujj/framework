@@ -1,0 +1,8 @@
+.search-info {
+  padding: $spacing;
+
+  > div {
+    display: table-cell;
+    padding-right: $spacing;
+  }
+}

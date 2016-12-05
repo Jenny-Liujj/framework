@@ -1,0 +1,43 @@
+<% content_for :top_bar do %>
+  <h4><%= @post.title %></h4>
+<% end %>
+
+<% content_for :center_column do %>
+  <div class='show-post'>
+    <%= render 'layouts/popularity', object: @post, vote: @vote, collection: @collection %>
+    <div class='post-content'>
+      <%== Sanitize.fragment(@post.content, Sanitize::Config::RELAXED) %>
+      <%= render 'layouts/tags', tags: @post.tags %>
+    </div>
+    <div class='post-info'>
+      <ul class='horizontal-clean-list'>
+        <% if policy(@post).edit? %>
+          <li><%= link_to t('action.edit'), edit_post_path(@post) %></li>
+          <li><%= link_to t('action.delete'), @post, method: :delete, data: { confirm: t('message.delete.post') } %></li>
+        <% end %>
+        <li>
+          <%= image_tag @post.user.avatar_url(:small), size: '20x20' %>
+          <%= @post.user.name %>
+        </li>
+        <li><%= date_and_time @post.updated_at %></li>
+      </ul>
+    </div>
+  </div>
+  <h5 class='post-comments-separator'><%= @post.comment_count %><%= t('comment.unit') %><%= t('activerecord.models.comment') %></h5>
+  <%= render 'comments/list', comments: @post.comments.order(:id) %>
+  <% if user_signed_in? %>
+    <div class='post-new-comment'>
+      <%= render 'comments/form', comment: @post.comments.new %>
+    </div>
+  <% end %>
+<% end %>
+
+<% content_for :right_column do %>
+  <div class='post-info'>
+    <ul class='vertical-clean-list'>
+      <div class='ad-block'>
+        宣传位
+      </div>
+    </ul>
+  </div>
+<% end %>

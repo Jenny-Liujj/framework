@@ -1,0 +1,18 @@
+<% content_for :top_bar do %>
+  <div class='search-info'>
+    <div class='search-field'>
+      <%= t('search.field') %>:
+      <span class='label label-default'>
+        <%= params[:q] %>
+      </span>
+    </div>
+    <div class='matched-object-count'>
+      <%= t('search.matched_object_count') %>:
+      <%= @posts.try :size %>
+    </div>
+  </div>
+<% end %>
+
+<% content_for :center_column do %>
+  <%= render 'posts/list', posts: @posts %>
+<% end %>

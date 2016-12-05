@@ -1,0 +1,12 @@
+<div class='panel panel-default'>
+  <div class='panel-body narrow-padding'>
+    <%= render inline: search_fields('comment',
+        { name: 'content', term: 'cont' }
+      ) %>
+  </div>
+</div>
+<div class='panel panel-default'>
+  <div class='panel-body narrow-padding'>
+    <%= render inline: table_list('comment', @comments, ['user.username', 'post.title', :created_at]) %>
+  </div>
+</div>

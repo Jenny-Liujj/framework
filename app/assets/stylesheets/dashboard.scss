@@ -1,0 +1,62 @@
+/*
+ *= require font-awesome
+ *= require select2
+ */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'colors';
+@import 'common';
+
+body {
+  background-color: #EBF0F1;
+}
+
+.main-container {
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+
+  a {
+    color: $text-color;
+  }
+
+  .navs {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+
+    .btn-group > .btn {
+      background-color: #ddd;
+    }
+    .btn-group > .btn.active {
+      background-color: $main-color;
+      color: $reversed-text-color;
+    }
+    .btn-group > .btn:hover {
+      background-color: rgba($main-color, 0.8);
+      color: $reversed-text-color;
+    }
+    .btn-group > .btn:first-child {
+      border-top-left-radius: 0;
+    }
+    .btn-group > .btn:last-child {
+      border-top-right-radius: 0;
+    }
+  }
+
+  .content {
+    margin-top: 50px;
+
+    .panel {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.admin-user-panel, .admin-post-panel {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}

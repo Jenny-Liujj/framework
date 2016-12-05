@@ -1,0 +1,17 @@
+.vote {
+  text-align: center;
+
+  .vote-button {
+    display: block;
+  }
+  .vote-count {
+    @extend .not-selectable;
+  }
+
+  a:focus {
+    color: rgba(51, 51, 51, 0.5);
+  }
+}
+.voted {
+  color: #FF503C !important;
+}

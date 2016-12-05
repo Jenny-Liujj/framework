@@ -1,0 +1,19 @@
+<% collectable_type = collectable.class.name %>
+<% collectable_id = collectable.id %>
+
+<% collected = (collection and collection.try(:value) == 1) %>
+
+<div class='collection' id='collection-<%= collectable_type %>-<%= collectable_id %>'
+  data-collectable-type='<%= collectable_type %>' data-collectable-id='<%= collectable_id %>'
+  data-collection-value='<%= collection.try :value %>'>
+  <%= link_to fa_icon('star-o'), collect_path(collectable_id: collectable_id,
+    collectable_type: collectable_type), class: "collect-button #{'hide' if collected}",
+    id: "collect-#{collectable_type}-#{collectable_id}", remote: true, data: { no_turbolink: true } %>
+  <%= link_to fa_icon('star'), uncollect_path(collectable_id: collectable_id,
+    collectable_type: collectable_type), class: "uncollect-button #{'hide' if not collected}",
+    id: "uncollect-#{collectable_type}-#{collectable_id}", remote: true, data: { no_turbolink: true } %>
+  <div class='collection-count <%= 'collected' if collected %>'
+    id='collection-count-<%= collectable_type %>-<%= collectable_id %>'>
+    <%= collectable.collection_count %>
+  </div>
+</div>

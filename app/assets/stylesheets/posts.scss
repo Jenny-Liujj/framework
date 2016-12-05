@@ -1,0 +1,106 @@
+#new_post {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.post_title, .post_tag_list {
+  .control-label {
+    max-width: 60px;
+  }
+  @media screen and (min-width: 768px) {
+    .col-sm-9 {
+      width: calc(100% - 60px);
+      padding-right: 0;
+    }
+  }
+}
+
+.show-post {
+  border-bottom: 1px solid #ddd;
+
+  .post-content {
+    display: table-cell;
+    padding-top: 0 !important;
+    padding-left: $spacing;
+    padding-bottom: $spacing;
+    text-align: justify;
+  }
+
+  .post-info {
+    padding-bottom: $spacing;
+    margin-left: calc(60px + #{$spacing});
+    @media screen and (max-width: 448px) {
+      margin-left: calc(16px + #{$spacing});
+    }
+  }
+}
+
+.post-filters {
+  text-align: center;
+  padding: $spacing;
+
+  a.active {
+    @extend .btn-success;
+  }
+}
+
+.post-list {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.post-list-block {
+  border-bottom: 1px solid #ddd;
+  padding-top: $spacing;
+  padding-bottom: 5px;
+
+  .block-group {
+    display: table;
+    width: 100%;
+    margin-bottom: $spacing;
+
+    .block {
+      display: table-cell;
+    }
+  }
+  .block-group:last-child {
+    margin-bottom: 0;
+  }
+
+  .popularity {
+    width: 100px;
+
+    .count {
+      padding: 5px;
+      display: table-cell;
+      text-align: center;
+      width: 50px;
+    }
+    .vote-count.fire {
+      background-color: #FF5F5D;
+    }
+    .comment-count.fire {
+      background-color: #7FB0D6;
+    }
+  }
+
+  .title {
+    width: 70%;
+    padding-left: $spacing;
+  }
+  .author {
+    min-width: 30px;
+    text-align: right;
+  }
+}
+.post-list-block:last-child {
+  border-bottom: none;
+}
+
+.post-comments-separator {
+  width: 100%;
+  background-color: #ddd;
+  padding: 5px;
+  margin-top: 0;
+}

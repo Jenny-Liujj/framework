@@ -1,0 +1,13 @@
+<%= simple_form_for @post, html: { class: 'form-horizontal' } do |f| %>
+  <div class='form-inputs'>
+    <%= f.input :title, wrapper: :horizontal_form %>
+    <%= f.input :tag_list, wrapper: :horizontal_form,
+      collection: Post.tag_counts_on(:tags).pluck(:name),
+      input_html: { class: 'select2-tag', multiple: true } %>
+    <%= render 'layouts/editor', form: f, attribute: :content %>
+  </div>
+
+  <div class='form-actions'>
+    <%= f.button :submit, t('action.submit'), class: 'btn btn-success' %>
+  </div>
+<% end %>

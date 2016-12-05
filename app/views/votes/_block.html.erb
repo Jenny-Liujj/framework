@@ -1,0 +1,18 @@
+<% votable_type = votable.class.name %>
+<% votable_id = votable.id %>
+
+<div class='vote' id='vote-<%= votable_type %>-<%= votable_id %>'
+  data-votable-type='<%= votable_type %>' data-votable-id='<%= votable_id %>'
+  data-vote-value=<%= vote.try :value %>>
+  <%= link_to fa_icon('caret-up 2x'),
+    up_vote_path(votable_id: votable_id, votable_type: votable_type),
+    class: "vote-button #{'disable' if not user_signed_in? or vote.try(:up?) or vote.try(:is_abused?)} #{'voted' if vote.try(:value) == 1}",
+    id: "vote-up-#{votable_type}-#{votable_id}", remote: true, data: { no_turbolink: true } %>
+  <div class='vote-count' id='vote-count-<%= votable_type %>-<%= votable_id %>'>
+    <%= votable.vote_count %>
+  </div>
+  <%= link_to fa_icon('caret-down 2x'),
+    down_vote_path(votable_id: votable_id, votable_type: votable_type),
+    class: "vote-button #{'disable' if not user_signed_in? or  vote.try(:down?) or vote.try(:is_abused?)} #{'voted' if vote.try(:value) == -1}",
+    id: "vote-down-#{votable_type}-#{votable_id}", remote: true, data: { no_turbolink: true } %>
+</div>

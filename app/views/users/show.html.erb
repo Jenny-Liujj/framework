@@ -1,14 +1,21 @@
-<p id="notice"><%= notice %></p>
+<% content_for :center_column do %>
+  <div class='panel panel-default'>
+    <div class='panel-heading'>
+      最近提问
+    </div>
+    <div class='panel-body'>
+      <%= render 'posts/list', posts: @user.posts %>
+    </div>
+  </div>
+<% end %>
 
-<p>
-  <strong>Username:</strong>
-  <%= @user.username %>
-</p>
-
-<p>
-  <strong>Password:</strong>
-  <%= @user.password %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% content_for :right_column do %>
+  <div class='panel panel-default'>
+    <div class='panel-body center'>
+      <ul class='vertical-clean-list'>
+        <li><%= image_tag @user.avatar.url(:medium) %></li>
+        <li><%= @user.username %></li>
+      </ul>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+<% content_for :top_bar do %>
+  <div class='post-filters'>
+    <%= link_to t('post.filter.latest'), posts_path(filter: :latest), class: "btn btn-sm #{'active' if not params[:filter] or params[:filter] == 'latest'}" %>
+    <%= link_to t('post.filter.hottest'), posts_path(filter: :hottest), class: "btn btn-sm #{'active' if params[:filter] == 'hottest'}" %>
+  </div>
+<% end %>
+
+<% content_for :center_column do %>
+  <%= render 'posts/list', posts: @posts %>
+  <div class='center'>
+    <%= paginate @posts %>
+  </div>
+<% end %>

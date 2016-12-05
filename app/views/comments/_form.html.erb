@@ -1,0 +1,13 @@
+<%= simple_form_for [comment.post, comment], remote: true do |f| %>
+  <div class='form-inputs'>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= render 'layouts/editor', form: f, attribute: :content %>
+  </div>
+
+  <div class='form-actions'>
+    <ul class='horizontal-clean-list'>
+      <li><%= f.submit t('action.submit'), class: 'btn btn-success btn-sm' %></li>
+      <li><a class='cancel-comment'><%= t('action.cancel') %></a></li>
+    </ul>
+  </div>
+<% end %>

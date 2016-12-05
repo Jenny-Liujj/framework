@@ -1,6 +1,15 @@
-<h1>Editing User</h1>
+<% content_for :center_column do %>
+  <div class='panel panel-default user-edit-form'>
+    <div class='panel-body'>
+      <%= simple_form_for @user do |f| %>
+        <div class='form-inputs'>
+          <%= upload_image form: f, image_name: :avatar, width: 150, height: 150 %>
+        </div>
 
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+        <div class='form-actions center'>
+          <%= f.submit '提交', class: 'btn btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>

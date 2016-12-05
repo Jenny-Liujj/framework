@@ -1,288 +1,132 @@
-  [1m[35m (26.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (11.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (3.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-11-04 02:28:13 UTC], ["updated_at", 2016-11-04 02:28:13 UTC]]
-  [1m[35m (2.0ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (4.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (4.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20161123084528)
-  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (74.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
-  [1m[36mUser Load (6.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
-Started GET "/" for ::1 at 2016-12-01 14:38:19 +0800
-  [1m[36mActiveRecord::SchemaMigration Load (4.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  
-ActiveRecord::PendingMigrationError (
-
-Migrations are pending. To resolve this issue, run:
-
-	bin/rails db:migrate RAILS_ENV=development
-
-):
-  
-activerecord (5.0.0.1) lib/active_record/migration.rb:572:in `check_pending!'
-activerecord (5.0.0.1) lib/active_record/migration.rb:548:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:38:in `block in call'
-activesupport (5.0.0.1) lib/active_support/callbacks.rb:97:in `__run_callbacks__'
-activesupport (5.0.0.1) lib/active_support/callbacks.rb:750:in `_run_call_callbacks'
-activesupport (5.0.0.1) lib/active_support/callbacks.rb:90:in `run_callbacks'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/callbacks.rb:36:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:49:in `call'
-web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
-railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/method_override.rb:22:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
-puma (3.6.2) lib/puma/configuration.rb:225:in `call'
-puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
-puma (3.6.2) lib/puma/server.rb:415:in `process_client'
-puma (3.6.2) lib/puma/server.rb:275:in `block in run'
-puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_source.html.erb (2.3ms)
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.1ms)
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.6ms)
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (117.1ms)
-  [1m[35m (4.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (1.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20161123084528)
-  [1m[35m (2.5ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (118.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
+Started GET "/" for ::1 at 2016-11-24 16:35:58 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (10.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
   [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (5.0ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (0.4ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (10.8ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
   [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
   [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
-  [1m[35m (327.3ms)[0m  [1m[35mDROP DATABASE IF EXISTS "frame_development"[0m
-  [1m[35m (278.1ms)[0m  [1m[35mDROP DATABASE IF EXISTS "frame_test"[0m
-  [1m[35m (45.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
-  [1m[35m (10.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35m (3.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUsers (20161123084528)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (25.1ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "username" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161123084528"]]
-  [1m[35m (3.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (4.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35mSQL (2.6ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-12-01 06:40:00 UTC], ["updated_at", 2016-12-01 06:40:00 UTC]]
-  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (7.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-Started GET "/" for ::1 at 2016-12-01 14:40:11 +0800
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by Rails::WelcomeController#index as HTML
-  Parameters: {"internal"=>true}
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/railties-5.0.0.1/lib/rails/templates/rails/welcome/index.html.erb (10.5ms)
-Completed 200 OK in 49ms (Views: 25.5ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/" for ::1 at 2016-12-01 14:41:55 +0800
-Processing by UsersController#index as HTML
-  Rendering users/index.html.erb within layouts/application
-  Rendered users/index.html.erb within layouts/application (0.4ms)
-Completed 200 OK in 695ms (Views: 690.0ms | ActiveRecord: 0.0ms)
-
-
-  [1m[35m (0.9ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (7.5ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateTests (20161201100048)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (48.9ms)[0m  [1m[35mCREATE TABLE "tests" ("id" serial primary key, "username" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (2.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161201100048"]]
-  [1m[35m (167.6ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (4.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (6.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'tests'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (3.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-Started GET "/" for ::1 at 2016-12-01 18:02:59 +0800
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Processing by UsersController#index as HTML
-  Rendering users/index.html.erb within layouts/application
-  Rendered users/index.html.erb within layouts/application (3.7ms)
-Completed 200 OK in 657ms (Views: 628.7ms | ActiveRecord: 0.0ms)
-
-
-Started GET "/tests" for ::1 at 2016-12-01 18:03:08 +0800
-Processing by TestsController#index as HTML
-  Rendering tests/index.html.erb within layouts/application
-  [1m[36mTest Load (3.0ms)[0m  [1m[34mSELECT "tests".* FROM "tests"[0m
-  Rendered tests/index.html.erb within layouts/application (8.8ms)
-Completed 200 OK in 58ms (Views: 41.8ms | ActiveRecord: 4.8ms)
-
-
-  [1m[35m (4.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (4.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-Migrating to CreateUserTest2s (20161202012900)
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (59.2ms)[0m  [1m[35mCREATE TABLE "user_test2s" ("id" serial primary key, "username" character varying, "password" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
-  [1m[35mSQL (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20161202012900"]]
-  [1m[35m (132.3ms)[0m  [1m[35mCOMMIT[0m
-  [1m[36mActiveRecord::InternalMetadata Load (6.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", :environment]]
+  [1m[35m (436.8ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ssgene-forum_development"[0m
+  [1m[35m (265.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "ssgene-forum_test"[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
+  [1m[35m (56.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying PRIMARY KEY)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1347689030726291925);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20160719021920)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (33.2ms)[0m  [1m[35mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" inet, "last_sign_in_ip" inet, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (7.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (3.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160719021920"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreatePosts (20160719032757)
   [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (2.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'tests'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (1.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'user_test2s'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (1.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-Started GET "/user_tests" for ::1 at 2016-12-02 09:29:59 +0800
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  
-ActionController::RoutingError (No route matches [GET] "/user_tests"):
-  
-actionpack (5.0.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:53:in `call'
-web-console (3.4.0) lib/web_console/middleware.rb:135:in `call_app'
-web-console (3.4.0) lib/web_console/middleware.rb:28:in `block in call'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `catch'
-web-console (3.4.0) lib/web_console/middleware.rb:18:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
-railties (5.0.0.1) lib/rails/rack/logger.rb:36:in `call_app'
-railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `block in call'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `block in tagged'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:26:in `tagged'
-activesupport (5.0.0.1) lib/active_support/tagged_logging.rb:70:in `tagged'
-railties (5.0.0.1) lib/rails/rack/logger.rb:24:in `call'
-sprockets-rails (3.2.0) lib/sprockets/rails/quiet_assets.rb:13:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/request_id.rb:24:in `call'
-rack (2.0.1) lib/rack/method_override.rb:22:in `call'
-rack (2.0.1) lib/rack/runtime.rb:22:in `call'
-activesupport (5.0.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
-actionpack (5.0.0.1) lib/action_dispatch/middleware/static.rb:136:in `call'
-rack (2.0.1) lib/rack/sendfile.rb:111:in `call'
-railties (5.0.0.1) lib/rails/engine.rb:522:in `call'
-puma (3.6.2) lib/puma/configuration.rb:225:in `call'
-puma (3.6.2) lib/puma/server.rb:578:in `handle_request'
-puma (3.6.2) lib/puma/server.rb:415:in `process_client'
-puma (3.6.2) lib/puma/server.rb:275:in `block in run'
-puma (3.6.2) lib/puma/thread_pool.rb:116:in `block in spawn_thread'
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.3ms)
-  Rendered collection of /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_route.html.erb [25 times] (18.3ms)
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/routes/_table.html.erb (22.4ms)
-  Rendering /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (21.3ms)
-  Rendered /opt/starman/software/ruby/persist/lib/ruby/gems/2.3.0/gems/actionpack-5.0.0.1/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (222.9ms)
-Started GET "/user_test2s" for ::1 at 2016-12-02 09:30:07 +0800
-Processing by UserTest2sController#index as HTML
-  Rendering user_test2s/index.html.erb within layouts/application
-  [1m[36mUserTest2 Load (5.8ms)[0m  [1m[34mSELECT "user_test2s".* FROM "user_test2s"[0m
-  Rendered user_test2s/index.html.erb within layouts/application (11.7ms)
-Completed 200 OK in 663ms (Views: 636.6ms | ActiveRecord: 7.5ms)
+  [1m[35m (8.4ms)[0m  [1m[35mCREATE TABLE "posts" ("id" serial primary key, "user_id" integer, "answer_id" integer, "title" character varying, "content" character varying, "vote_count" integer DEFAULT 0, "comment_count" integer DEFAULT 0, "collection_count" integer DEFAULT 0, "position" integer, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160719032757"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateComments (20160719033132)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (6.8ms)[0m  [1m[35mCREATE TABLE "comments" ("id" serial primary key, "user_id" integer, "post_id" integer, "content" character varying, "vote_count" integer DEFAULT 0, "collection_count" integer DEFAULT 0, "position" integer, "status" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160719033132"]]
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddColumnsToUsers (20160719085507)
+  [1m[35m (1.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (1.4ms)[0m  [1m[35mALTER TABLE "users" ADD "username" character varying[0m
+  [1m[35m (0.4ms)[0m  [1m[35mALTER TABLE "users" ADD "avatar" character varying[0m
+  [1m[35m (0.3ms)[0m  [1m[35mALTER TABLE "users" ADD "role" character varying[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160719085507"]]
+  [1m[35m (2.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateVotes (20160721053928)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "votes" ("id" serial primary key, "user_id" integer, "votable_id" integer, "votable_type" character varying, "value" integer DEFAULT 0, "abuse" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160721053928"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCollections (20160726024635)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (8.2ms)[0m  [1m[35mCREATE TABLE "collections" ("id" serial primary key, "user_id" integer, "collectable_id" integer, "collectable_type" character varying, "value" integer DEFAULT 0, "abuse" integer DEFAULT 0, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160726024635"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to EnableZhparserExtension (20160726103727)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (43.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "zhparser"[0m
+  [1m[35m (7.4ms)[0m  [1m[35mcreate text search configuration zhparser (parser = zhparser);[0m
+  [1m[35m (10.5ms)[0m  [1m[35malter text search configuration zhparser add mapping for n,v,a,i,e,l with simple;[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160726103727"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ActsAsTaggableOnMigration (20160728035722)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
 
+  class ActsAsTaggableOnMigration < ActiveRecord::Migration[4.2] (called from load at /opt/starman/software/ruby/persist/bin/rake:23)
+  [1m[35m (12.5ms)[0m  [1m[35mCREATE TABLE "tags" ("id" serial primary key, "name" character varying)[0m
+  [1m[35m (11.4ms)[0m  [1m[35mCREATE TABLE "taggings" ("id" serial primary key, "tag_id" integer, "taggable_type" character varying, "taggable_id" integer, "tagger_type" character varying, "tagger_id" integer, "context" character varying(128), "created_at" timestamp)[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tag_id" ON "taggings"  ("tag_id")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings"  ("taggable_id", "taggable_type", "context")[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160728035722"]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingUniqueIndices (20160728035723)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
 
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (2.1ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+  class AddMissingUniqueIndices < ActiveRecord::Migration[4.2] (called from load at /opt/starman/software/ruby/persist/bin/rake:23)
+  [1m[35m (0.9ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_tags_on_name" ON "tags"  ("name")[0m
+  [1m[35m (2.5ms)[0m  [1m[35mDROP INDEX  "index_taggings_on_tag_id"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP INDEX  "index_taggings_on_taggable_id_and_taggable_type_and_context"[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "taggings_idx" ON "taggings"  ("tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160728035723"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddTaggingsCounterCacheToTags (20160728035724)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddTaggingsCounterCacheToTags < ActiveRecord::Migration[4.2] (called from load at /opt/starman/software/ruby/persist/bin/rake:23)
+  [1m[35m (17.2ms)[0m  [1m[35mALTER TABLE "tags" ADD "taggings_count" integer DEFAULT 0[0m
+  [1m[36mActsAsTaggableOn::Tag Load (0.7ms)[0m  [1m[34mSELECT  "tags".* FROM "tags" ORDER BY "tags"."id" ASC LIMIT $1[0m  [["LIMIT", 1000]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160728035724"]]
+  [1m[35m (2.8ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingTaggableIndex (20160728035725)
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddMissingTaggableIndex < ActiveRecord::Migration[4.2] (called from load at /opt/starman/software/ruby/persist/bin/rake:23)
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_id_and_taggable_type_and_context" ON "taggings"  ("taggable_id", "taggable_type", "context")[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160728035725"]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to ChangeCollationForTagNames (20160728035726)
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class ChangeCollationForTagNames < ActiveRecord::Migration[4.2] (called from load at /opt/starman/software/ruby/persist/bin/rake:23)
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160728035726"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+Migrating to AddMissingIndexes (20160728035727)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+DEPRECATION WARNING: Directly inheriting from ActiveRecord::Migration is deprecated. Please specify the Rails release the migration was written for:
+
+  class AddMissingIndexes < ActiveRecord::Migration[4.2] (called from load at /opt/starman/software/ruby/persist/bin/rake:23)
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tag_id" ON "taggings"  ("tag_id")[0m
+  [1m[35m (2.9ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_id" ON "taggings"  ("taggable_id")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_taggable_type" ON "taggings"  ("taggable_type")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id" ON "taggings"  ("tagger_id")[0m
+  [1m[35m (1.8ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_context" ON "taggings"  ("context")[0m
+  [1m[35m (2.7ms)[0m  [1m[35mCREATE  INDEX  "index_taggings_on_tagger_id_and_tagger_type" ON "taggings"  ("tagger_id", "tagger_type")[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE  INDEX  "taggings_idy" ON "taggings"  ("taggable_id", "taggable_type", "tagger_id", "context")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20160728035727"]]
+  [1m[35m (2.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", 2016-11-24 08:37:32 UTC], ["updated_at", 2016-11-24 08:37:32 UTC]]
+  [1m[35m (3.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(1347689030726291925)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -290,7 +134,19 @@ JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
 JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
 JOIN pg_namespace t3 ON c.connamespace = t3.oid
 WHERE c.contype = 'f'
-  AND t1.relname = 'tests'
+  AND t1.relname = 'collections'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
@@ -302,11 +158,11 @@ JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
 JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
 JOIN pg_namespace t3 ON c.connamespace = t3.oid
 WHERE c.contype = 'f'
-  AND t1.relname = 'user_test2s'
+  AND t1.relname = 'posts'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
-  [1m[35m (1.7ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
 FROM pg_constraint c
 JOIN pg_class t1 ON c.conrelid = t1.oid
 JOIN pg_class t2 ON c.confrelid = t2.oid
@@ -314,38 +170,7 @@ JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
 JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
 JOIN pg_namespace t3 ON c.connamespace = t3.oid
 WHERE c.contype = 'f'
-  AND t1.relname = 'users'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3978173664077790870);[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.8ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
-  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
-  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
-  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3978173664077790870)[0m
-  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
-  [1m[35m (3.3ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'tests'
-  AND t3.nspname = ANY (current_schemas(false))
-ORDER BY c.conname
-[0m
-  [1m[35m (3.5ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
-FROM pg_constraint c
-JOIN pg_class t1 ON c.conrelid = t1.oid
-JOIN pg_class t2 ON c.confrelid = t2.oid
-JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
-JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
-JOIN pg_namespace t3 ON c.connamespace = t3.oid
-WHERE c.contype = 'f'
-  AND t1.relname = 'user_test2s'
+  AND t1.relname = 'taggings'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
@@ -357,7 +182,425 @@ JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
 JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
 JOIN pg_namespace t3 ON c.connamespace = t3.oid
 WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
   AND t1.relname = 'users'
   AND t3.nspname = ANY (current_schemas(false))
 ORDER BY c.conname
 [0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'votes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
+  [1m[36mActiveRecord::SchemaMigration Load (0.7ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (1.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dongli.init@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "dongli.init@gmail.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.4ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "dongli"], ["LIMIT", 1]]
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "role") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "dongli.init@gmail.com"], ["encrypted_password", "$2a$11$5PT4hBrJxCgbOd8161e7p.2HEo1Z/EM8LdOoeUjHv.htWiMO9oVi."], ["created_at", 2016-11-24 08:37:49 UTC], ["updated_at", 2016-11-24 08:37:49 UTC], ["username", "dongli"], ["role", "user"]]
+  [1m[35m (2.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "posts" ("user_id", "title", "content", "status", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["user_id", 1], ["title", "Infinite loop in random.tcc (GCC 6.1.0) (May be bug in Armadillo)"], ["content", "I found the C++ 11 random number generator in GCC 6.1.0 causes codes stuck in Mac OS X 10.11.5, a simple code snippet is as following:\n\n#include <iostream>\n#include <armadillo>\n\nusing namespace std;\nusing namespace arma;\n\nint main(int argc, char const* argv[])\n{\n    cout << \"check 1\" << endl;\n    cout << arma_rng::randn<double>() << endl;\n    cout << \"check 2\" << endl;\n    return 0;\n}\nI debugged this code by using lldb, and locked the suspicious part in random.tcc file of libstdc++:\n\n/**\n * Polar method due to Marsaglia.\n *\n * Devroye, L. Non-Uniform Random Variates Generation. Springer-Verlag,\n * New York, 1986, Ch. V, Sect. 4.4.\n */\ntemplate<typename _RealType>\n  template<typename _UniformRandomNumberGenerator>\n    typename normal_distribution<_RealType>::result_type\n    normal_distribution<_RealType>::\n    operator()(_UniformRandomNumberGenerator& __urng,\n       const param_type& __param)\n    {\n  result_type __ret;\n  __detail::_Adaptor<_UniformRandomNumberGenerator, result_type>\n    __aurng(__urng);\n\n  if (_M_saved_available)\n    {\n      _M_saved_available = false;\n      __ret = _M_saved;\n    }\n  else\n    {\n      result_type __x, __y, __r2;\n      do\n        {\n      __x = result_type(2.0) * __aurng() - 1.0;\n      __y = result_type(2.0) * __aurng() - 1.0;\n      __r2 = __x * __x + __y * __y;\n        }\n      while (__r2 > 1.0 || __r2 == 0.0);\n\n      const result_type __mult = std::sqrt(-2 * std::log(__r2) / __r2);\n      _M_saved = __x * __mult;\n      _M_saved_available = true;\n      __ret = __y * __mult;\n    }\n\n  __ret = __ret * __param.stddev() + __param.mean();\n  return __ret;\n    }\nwhere __aurng() always return 0, so __r2 > 1.0 || __r2 == 0.0 will never be met.\n\nUPDATE:\n\nI found it may be a bug in Armadillo library, since I tried the following codes which is OK:\n\n#include <iostream>\n#include <random>\n\nusing namespace std;\n\nint main(int argc, const char *argv[])\n{\n    mt19937_64 rng;\n    normal_distribution<double> dist;\n\n    cout << dist(rng) << endl;\n\n    return 0;\n}\n"], ["status", "draft"], ["created_at", 2016-11-24 08:37:49 UTC], ["updated_at", 2016-11-24 08:37:49 UTC]]
+  [1m[36mActsAsTaggableOn::Tagging Load (1.3ms)[0m  [1m[34mSELECT "taggings".* FROM "taggings" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2[0m  [["taggable_id", 1], ["taggable_type", "Post"]]
+  [1m[35m (2.5ms)[0m  [1m[35mCOMMIT[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
+Started GET "/" for ::1 at 2016-11-24 16:57:39 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (7.4ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (6.6ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (1.5ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (6.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (180.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (405.5ms)
+Started GET "/" for ::1 at 2016-11-24 16:57:41 +0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (13.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (24.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (32.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (110.7ms)
+  [1m[35m (7.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (135.2ms)
+Started GET "/" for ::1 at 2016-11-24 16:57:45 +0800
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (10.8ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (4.4ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (7.2ms)
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (60.9ms)
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (76.3ms)
+  Rendered layouts/_nav_bar.html.erb (8.4ms)
+  Rendered layouts/_nav_bar.html.erb (1.5ms)
+  Rendered layouts/_top_bar.html.erb (0.4ms)
+  Rendered layouts/_top_bar.html.erb (0.4ms)
+  Rendered layouts/_center_column.html.erb (0.4ms)
+  Rendered layouts/_center_column.html.erb (0.4ms)
+  Rendered layouts/_right_column.html.erb (0.4ms)
+  Rendered layouts/_right_column.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (1.2ms)
+  Rendered layouts/_footer.html.erb (1.5ms)
+  Rendered layouts/_nav_bar.html.erb (3.6ms)
+Completed 200 OK in 20324ms (Views: 20225.6ms | ActiveRecord: 93.9ms)
+
+
+Completed 200 OK in 16773ms (Views: 16737.8ms | ActiveRecord: 32.5ms)
+
+
+  Rendered layouts/_top_bar.html.erb (0.4ms)
+  Rendered layouts/_center_column.html.erb (0.9ms)
+  Rendered layouts/_right_column.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.4ms)
+Completed 200 OK in 22683ms (Views: 22596.4ms | ActiveRecord: 26.6ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
+Started GET "/" for 192.168.199.196 at 2016-11-24 17:01:55 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (10.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (4.3ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (1.3ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (6.2ms)
+  [1m[36mUser Load (3.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (184.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (371.1ms)
+  Rendered layouts/_nav_bar.html.erb (10.7ms)
+  Rendered layouts/_top_bar.html.erb (0.7ms)
+  Rendered layouts/_center_column.html.erb (1.2ms)
+  Rendered layouts/_right_column.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 3127ms (Views: 3040.3ms | ActiveRecord: 47.7ms)
+
+
+Started GET "/users/sign_up" for 192.168.199.196 at 2016-11-24 17:02:08 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.0ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (44.4ms)
+  Rendered layouts/_nav_bar.html.erb (2.8ms)
+  Rendered layouts/_top_bar.html.erb (0.7ms)
+  Rendered layouts/_center_column.html.erb (0.7ms)
+  Rendered layouts/_right_column.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 311ms (Views: 300.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 192.168.199.196 at 2016-11-24 17:02:31 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"p6TOOB9wdd1GyaB1xYHuixw1962vMEuaX5umcdRKnl/+JZX5/BZAjfj5E7+01VYtiNbL8sPQR8ezpE8oGYBCvg==", "user"=>{"email"=>"ccliujingjing@126.com", "username"=>"刘精精", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"注册"}
+  [1m[35m (2.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists (4.2ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ccliujingjing@126.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.7ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "ccliujingjing@126.com"], ["LIMIT", 1]]
+  [1m[36mUser Exists (0.6ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "刘精精"], ["LIMIT", 1]]
+  [1m[35mSQL (7.7ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "username", "role") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["email", "ccliujingjing@126.com"], ["encrypted_password", "$2a$11$Loi5N8ZJGMVT9BIwfQEKO.r/1X3J4EiEOaqLrL2HKKC9vkI9FtPoi"], ["created_at", 2016-11-24 09:02:31 UTC], ["updated_at", 2016-11-24 09:02:31 UTC], ["username", "刘精精"], ["role", "user"]]
+  [1m[35m (3.9ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (6.8ms)[0m  [1m[33mUPDATE "users" SET "sign_in_count" = $1, "current_sign_in_at" = $2, "last_sign_in_at" = $3, "current_sign_in_ip" = $4, "last_sign_in_ip" = $5, "updated_at" = $6 WHERE "users"."id" = $7[0m  [["sign_in_count", 1], ["current_sign_in_at", 2016-11-24 09:02:31 UTC], ["last_sign_in_at", 2016-11-24 09:02:31 UTC], ["current_sign_in_ip", "192.168.199.196/32"], ["last_sign_in_ip", "192.168.199.196/32"], ["updated_at", 2016-11-24 09:02:31 UTC], ["id", 2]]
+  [1m[35m (3.1ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://192.168.199.196:3000/
+Completed 302 Found in 275ms (ActiveRecord: 29.7ms)
+
+
+Started GET "/" for 192.168.199.196 at 2016-11-24 17:02:31 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (2.6ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (5.6ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (18.3ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (29.8ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_nav_bar.html.erb (13.6ms)
+  Rendered layouts/_top_bar.html.erb (0.8ms)
+  Rendered layouts/_center_column.html.erb (0.8ms)
+  Rendered layouts/_right_column.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 419ms (Views: 408.0ms | ActiveRecord: 6.0ms)
+
+
+Started GET "/posts/new" for 192.168.199.196 at 2016-11-24 17:02:36 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering posts/new.html.erb within layouts/application
+  [1m[35m (6.6ms)[0m  [1m[34mSELECT "tags"."name" FROM "tags" JOIN (SELECT taggings.tag_id, COUNT(taggings.tag_id) AS tags_count FROM "taggings" INNER JOIN posts ON posts.id = taggings.taggable_id WHERE (taggings.taggable_type = 'Post' AND taggings.context = 'tags') AND (taggings.taggable_id IN(SELECT posts.id FROM "posts")) GROUP BY taggings.tag_id HAVING (COUNT(taggings.tag_id) > 0)) AS taggings ON taggings.tag_id = tags.id[0m
+  Rendered layouts/_editor.html.erb (6.3ms)
+  Rendered posts/_form.html.erb (39.0ms)
+  Rendered posts/new.html.erb within layouts/application (43.3ms)
+  Rendered layouts/_nav_bar.html.erb (2.5ms)
+  Rendered layouts/_top_bar.html.erb (0.7ms)
+  Rendered layouts/_center_column.html.erb (0.7ms)
+  Rendered layouts/_right_column.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 315ms (Views: 287.2ms | ActiveRecord: 8.7ms)
+
+
+Started GET "/" for 192.168.199.109 at 2016-11-24 17:56:38 +0800
+Cannot render console from 192.168.199.109! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (24.5ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (8.0ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (12.9ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (90.8ms)
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (126.4ms)
+  Rendered layouts/_nav_bar.html.erb (3.5ms)
+  Rendered layouts/_top_bar.html.erb (0.6ms)
+  Rendered layouts/_center_column.html.erb (0.8ms)
+  Rendered layouts/_right_column.html.erb (0.5ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 755ms (Views: 681.7ms | ActiveRecord: 39.7ms)
+
+
+Started GET "/" for 192.168.199.196 at 2016-11-24 17:56:49 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (1.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (4.7ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (16.1ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (26.9ms)
+  [1m[36mUser Load (4.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_nav_bar.html.erb (10.4ms)
+  Rendered layouts/_top_bar.html.erb (0.7ms)
+  Rendered layouts/_center_column.html.erb (0.8ms)
+  Rendered layouts/_right_column.html.erb (0.6ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 283ms (Views: 259.7ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/posts?filter=hottest" for 192.168.199.196 at 2016-11-24 17:56:51 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#index as HTML
+  Parameters: {"filter"=>"hottest"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (6.9ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE (vote_count >= 10 OR collection_count >= 10 OR comment_count >= 10) ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  Rendered posts/_list.html.erb (8.7ms)
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (vote_count >= 10 OR collection_count >= 10 OR comment_count >= 10)[0m
+  Rendered posts/index.html.erb within layouts/application (15.8ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_nav_bar.html.erb (7.5ms)
+  Rendered layouts/_top_bar.html.erb (0.5ms)
+  Rendered layouts/_center_column.html.erb (0.5ms)
+  Rendered layouts/_right_column.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 204ms (Views: 190.3ms | ActiveRecord: 9.5ms)
+
+
+Started GET "/posts?filter=latest" for 192.168.199.196 at 2016-11-24 17:56:53 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#index as HTML
+  Parameters: {"filter"=>"latest"}
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (1.2ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (1.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (3.1ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (11.2ms)
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (17.5ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  Rendered layouts/_nav_bar.html.erb (4.0ms)
+  Rendered layouts/_top_bar.html.erb (0.8ms)
+  Rendered layouts/_center_column.html.erb (0.5ms)
+  Rendered layouts/_right_column.html.erb (0.4ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 182ms (Views: 174.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/posts/1" for 192.168.199.196 at 2016-11-24 17:56:56 +0800
+Cannot render console from 192.168.199.196! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.4ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mVote Load (3.1ms)[0m  [1m[34mSELECT  "votes".* FROM "votes" WHERE "votes"."user_id" = $1 AND "votes"."votable_id" = $2 AND "votes"."votable_type" = $3 LIMIT $4[0m  [["user_id", 2], ["votable_id", 1], ["votable_type", "Post"], ["LIMIT", 1]]
+  [1m[36mCollection Load (2.8ms)[0m  [1m[34mSELECT  "collections".* FROM "collections" WHERE "collections"."user_id" = $1 AND "collections"."collectable_id" = $2 AND "collections"."collectable_type" = $3 LIMIT $4[0m  [["user_id", 2], ["collectable_id", 1], ["collectable_type", "Post"], ["LIMIT", 1]]
+  [1m[36mPost Exists (5.4ms)[0m  [1m[34mSELECT  1 AS one FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering posts/show.html.erb within layouts/application
+  Rendered votes/_block.html.erb (2.5ms)
+  Rendered collections/_block.html.erb (2.1ms)
+  Rendered layouts/_popularity.html.erb (17.0ms)
+  [1m[36mActsAsTaggableOn::Tag Load (0.9ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (3.3ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mComment Load (6.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = $1 ORDER BY "comments"."id" ASC[0m  [["post_id", 1]]
+  Rendered comments/_list.html.erb (8.5ms)
+  Rendered layouts/_editor.html.erb (2.9ms)
+  Rendered comments/_form.html.erb (53.8ms)
+  Rendered posts/show.html.erb within layouts/application (175.1ms)
+  Rendered layouts/_nav_bar.html.erb (3.2ms)
+  Rendered layouts/_top_bar.html.erb (0.8ms)
+  Rendered layouts/_center_column.html.erb (0.5ms)
+  Rendered layouts/_right_column.html.erb (0.3ms)
+  Rendered layouts/_footer.html.erb (0.3ms)
+Completed 200 OK in 454ms (Views: 317.2ms | ActiveRecord: 82.1ms)
+
+
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1347689030726291925);[0m
+  [1m[36mActiveRecord::SchemaMigration Load (4.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::InternalMetadata Load (5.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", :environment], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(1347689030726291925)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (4.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'collections'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'comments'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'posts'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'taggings'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tags'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'votes'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+DEPRECATION WARNING: ActiveRecord::Base.raise_in_transactional_callbacks= is deprecated, has no effect and will be removed without replacement. (called from <top (required)> at /Users/liu/Desktop/ssgene-forum/config/environment.rb:5)
+DEPRECATION WARNING: alias_method_chain is deprecated. Please, use Module#prepend instead. From module, you can access the original method using super. (called from <class:User> at /Users/liu/Desktop/ssgene-forum/app/models/user.rb:3)
+Started GET "/" for ::1 at 2016-12-02 11:11:59 +0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.6ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  Rendering posts/index.html.erb within layouts/application
+  [1m[36mPost Load (10.7ms)[0m  [1m[34mSELECT  "posts".* FROM "posts" ORDER BY id DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 25], ["OFFSET", 0]]
+  [1m[36mActsAsTaggableOn::Tag Load (34.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."taggable_id" = $1 AND "taggings"."taggable_type" = $2 AND "taggings"."context" = $3[0m  [["taggable_id", 1], ["taggable_type", "Post"], ["context", "tags"]]
+  Rendered layouts/_tags.html.erb (39.8ms)
+  [1m[36mUser Load (4.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendered posts/_list.html.erb (192.1ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts"[0m
+  Rendered posts/index.html.erb within layouts/application (376.3ms)
+  Rendered layouts/_nav_bar.html.erb (10.9ms)
+  Rendered layouts/_top_bar.html.erb (0.7ms)
+  Rendered layouts/_center_column.html.erb (0.8ms)
+  Rendered layouts/_right_column.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.6ms)
+Completed 200 OK in 3613ms (Views: 3511.8ms | ActiveRecord: 65.2ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2016-12-02 11:17:22 +0800
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (2.4ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (92.4ms)
+  Rendered layouts/_nav_bar.html.erb (2.5ms)
+  Rendered layouts/_top_bar.html.erb (0.6ms)
+  Rendered layouts/_center_column.html.erb (0.6ms)
+  Rendered layouts/_right_column.html.erb (0.7ms)
+  Rendered layouts/_footer.html.erb (0.5ms)
+Completed 200 OK in 579ms (Views: 559.9ms | ActiveRecord: 0.0ms)
+
+

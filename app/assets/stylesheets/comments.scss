@@ -1,0 +1,40 @@
+.show-comment {
+  margin-top: $spacing;
+  border-bottom: 1px solid #ddd;
+
+  .comment-left-side {
+    text-align: center;
+    display: table-cell;
+    width: 60px;
+    .popularity {
+      display: block !important;
+    }
+    .accept-comment {
+      font-size: 1.5em;
+    }
+    .accept-comment.accepted {
+      color: green;
+    }
+  }
+
+  .comment-content {
+    display: table-cell;
+    padding-top: 0 !important;
+    padding-left: $spacing;
+    padding-bottom: $spacing;
+    text-align: justify;
+    width: 2000px;
+
+    ol {
+      padding-left: 20px;
+    }
+  }
+
+  .comment-info {
+    padding-bottom: $spacing;
+    margin-left: calc(60px + #{$spacing});
+    @media screen and (max-width: 448px) {
+      margin-left: calc(16px + #{$spacing});
+    }
+  }
+}

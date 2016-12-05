@@ -1,0 +1,121 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require font-awesome
+ *= require upload_image/upload_image
+ *= require froala
+ *= require select2
+ */
+
+$spacing: 16px;
+$half-spacing: 8px;
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'colors';
+@import 'common';
+@import 'navbar';
+@import 'footer';
+@import 'users';
+@import 'posts';
+@import 'comments';
+@import 'votes';
+@import 'collections';
+@import 'popularity';
+@import 'tag';
+@import 'home';
+@import 'search';
+@import 'kaminari';
+@import 'custom_select2';
+
+#main-columns {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 10px 0 10px;
+  padding-bottom: 16px;
+  @media screen and (max-width: 448px) {
+    padding: 5px 5px 0 5px;
+  }
+}
+
+#top-bar {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: $spacing;
+}
+
+.signup-panel, .signin-panel {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+
+  .panel-heading {
+    h4 {
+      margin: 0 auto;
+    }
+  }
+}
+
+.devise-shared-links {
+  margin-top: 10px;
+}
+
+textarea {
+  max-width: 100%;
+  min-height: 400px;
+}
+
+ul.vertical-clean-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+
+  > li {
+    margin-bottom: $spacing;
+  }
+  > li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+ul.horizontal-clean-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 0;
+  > li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  > li:last-child {
+    margin-right: 0;
+  }
+}
+
+a {
+  color: $link-color;
+}
+a:hover {
+  color: $link-hover-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.form-actions {
+  margin-top: $spacing;
+}
+
+.ad-block {
+  width: 100%;
+  padding: 30px;
+  text-align: center;
+  border: 1px solid #ddd;
+}

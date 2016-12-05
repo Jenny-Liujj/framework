@@ -1,1 +1,0 @@
-json.partial! "user_test2s/user_test2", user_test2: @user_test2

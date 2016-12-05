@@ -1,0 +1,82 @@
+@import "colors";
+
+.not-selectable {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none;   /* Chrome/Safari/Opera */
+  -khtml-user-select: none;    /* Konqueror */
+  -moz-user-select: none;      /* Firefox */
+  -ms-user-select: none;       /* Internet Explorer/Edge */
+  user-select: none;           /* Non-prefixed version, currently
+                                  not supported by any browser */
+}
+
+a.disable {
+  pointer-events: none;
+}
+
+.vertical-centered-block {
+  text-align: center;
+  height: inherit;
+}
+
+.vertical-centered-block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+
+.vertical-centered-window-block {
+  text-align: center;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.vertical-centered-window-block:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+
+.vertical-centered {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+ul.horizontal-clean-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  > li {
+    display: inline-block;
+  }
+  > li:not(:first-child) {
+    margin-left: 10px;
+  }
+}
+
+input:focus {
+  border-color: $main-color !important;
+}
+
+.btn-success {
+  background-color: $main-color;
+  border-color: $main-color;
+}
+.btn-success:focus, .btn-success:hover, .btn-success:active,
+.btn-success:active:focus {
+  background-color: $main-color;
+  opacity: 0.8;
+  border-color: $main-color;
+}

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'/>
+    <title>星舰基因论坛</title>
+    <%= stylesheet_link_tag 'dashboard', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'dashboard', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class='main-container'>
+      <div class='navs center'>
+        <div class='btn-group'>
+          <%= link_to '返回主页', root_path, class: 'btn' %>
+          <% DashboardController::AdminModels.each do |category| %>
+            <% if policy(:dashboard).send(:"show_#{category}?") %>
+              <a href='<%= send("admin_#{category}_path", category) %>' class='<%= @category == category ? "active" : '' %> btn'>
+                <%= t("activerecord.models.#{category.singularize}") %>
+              </a>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class='content'>
+        <%= yield %>
+      </div>
+    </div>
+
+  </body>
+</html>

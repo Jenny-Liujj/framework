@@ -1,0 +1,34 @@
+<ul class='vertical-clean-list post-list'>
+  <% posts.each do |post| %>
+    <li class='post-list-block'>
+      <div class='block-group'>
+        <div class='popularity block'>
+          <span class='count vote-count <%= post.is_on_fire?(:vote) ? 'fire' : '' %>'>
+            <%= fa_icon('unsorted') %><br class='hidden-lg hidden-md hidden-sm'/>
+            <%= post.vote_count %>
+          </span>
+          <span class='count collection-count <%= post.is_on_fire?(:collection) ? 'fire' : '' %>'>
+            <%= fa_icon('star') %><br class='hidden-lg hidden-md hidden-sm'/>
+            <%= post.collection_count %>
+          </span>
+          <span class='count comment-count <%= post.is_on_fire?(:comment) ? 'fire' : '' %>'>
+            <%= fa_icon('comment-o') %><br class='hidden-lg hidden-md hidden-sm'/>
+            <%= post.comment_count %>
+          </span>
+        </div>
+        <div class='title block'>
+          <%= link_to post.title, post %>
+          <%= render 'layouts/tags', tags: post.tags %>
+        </div>
+      </div>
+      <div class='block-group'>
+        <div class='date block'>
+          <%= date_and_time post.created_at %>
+        </div>
+        <div class='author block'>
+          <%= link_to post.user.name, post.user %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,30 @@
+<div id='comment-<%= comment.id %>' class='show-comment'>
+  <div class='comment-left-side'>
+    <%= render 'layouts/popularity', object: comment,
+      vote: current_user.try(:find_vote_for, comment),
+      collection: current_user.try(:find_collection_for, comment) %>
+    <% if policy(comment).accept? || comment.status == 'accepted' %>
+      <%= link_to fa_icon('check'), [comment.post, :accept, comment],
+        remote: true, id: "accept-comment-#{comment.id}",
+        class: "accept-comment #{comment.status} #{'disable' if not policy(comment).accept?}" %>
+    <% end %>
+  </div>
+  <div class='comment-content'>
+    <%== Sanitize.fragment(comment.content, Sanitize::Config::BASIC) %>
+  </div>
+  <div class='comment-info'>
+    <ul class='horizontal-clean-list'>
+      <% if policy(comment).edit? %>
+        <li>
+          <%= link_to t('action.edit'), [:edit, comment.post, comment], remote: true %>
+        </li>
+        <li>
+          <%= link_to t('action.delete'), [comment.post, comment],
+            method: :delete, data: { confirm: t('comment.message.delete') }, remote:true %>
+        </li>
+      <% end %>
+      <li><%= comment.user.name %></li>
+      <li><%= date_and_time comment.updated_at %></li>
+    </ul>
+  </div>
+</div>
